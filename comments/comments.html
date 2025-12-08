@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>暗源网站评论区</title>
+    <link
+      rel="Shortcut Icon"
+      href="https://tuchuang.xkyfzs.top/img/favicon.png"
+      type="image/x-icon"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      }
+
+      body {
+        background: linear-gradient(
+            rgba(10, 15, 30, 0.85),
+            rgba(20, 25, 50, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80")
+            no-repeat center center fixed;
+        background-size: cover;
+        min-height: 100vh;
+        position: relative;
+        padding-bottom: 40px;
+      }
+
+      .header-container {
+        padding: 30px 20px;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 10, 30, 0.9) 0%,
+          rgba(40, 70, 140, 0.9) 100%
+        );
+        border-bottom: 3px solid rgba(80, 123, 249, 0.9);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* 添加微妙的动态效果 */
+      .header-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 30% 20%,
+          rgba(80, 123, 249, 0.2) 0%,
+          transparent 70%
+        );
+        z-index: 0;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        color: #ffffff;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+        background: linear-gradient(to right, #ffffff, #a8c6ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        color: rgba(200, 220, 255, 0.9);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+      }
+
+      .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .comments-container {
+        background-color: rgba(255, 255, 255, 0.97);
+        border-radius: 16px;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+        border: 1px solid rgba(212, 237, 255, 0.3);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+      }
+
+      .comments-container:hover {
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3);
+        transform: translateY(-3px);
+      }
+
+      .comments-header {
+        background: linear-gradient(135deg, #3a7bd5 0%, #1a3f8c 100%);
+        color: white;
+        padding: 25px 35px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .comments-header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 1%,
+          transparent 20%
+        );
+        opacity: 0.3;
+        z-index: 0;
+      }
+
+      .comments-header h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+      }
+
+      .comment-count {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 20px;
+        border-radius: 25px;
+        font-weight: 600;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease;
+      }
+
+      .comment-count:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+      }
+
+      .comments-body {
+        padding: 35px;
+        min-height: 400px;
+      }
+
+      /* Twikoo 自定义样式 */
+      .twikoo .tk-submit .el-textarea__inner {
+        min-height: 150px !important;
+        border-radius: 10px !important;
+        border: 1px solid #ddd !important;
+        padding: 18px !important;
+        font-size: 16px !important;
+        transition: all 0.3s !important;
+        background-color: rgba(250, 252, 255, 0.9) !important;
+      }
+
+      .twikoo .tk-submit .el-textarea__inner:focus {
+        border-color: #507bf9 !important;
+        box-shadow: 0 0 0 3px rgba(80, 123, 249, 0.15) !important;
+        outline: none !important;
+        background-color: white !important;
+      }
+
+      .twikoo .tk-submit .tk-row-actions {
+        margin-top: 25px;
+      }
+
+      .twikoo .tk-action-icon {
+        color: #507bf9 !important;
+        transition: all 0.2s !important;
+      }
+
+      .twikoo .tk-action-icon:hover {
+        color: #3a5fd9 !important;
+        transform: scale(1.1);
+      }
+
+      .twikoo .tk-avatar {
+        border-radius: 50% !important;
+        border: 2px solid #eaeaea !important;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1) !important;
+        transition: all 0.3s !important;
+      }
+
+      .twikoo .tk-avatar:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15) !important;
+      }
+
+      /* 加载状态 */
+      .loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 20px;
+      }
+
+      .spinner {
+        width: 60px;
+        height: 60px;
+        border: 5px solid rgba(80, 123, 249, 0.2);
+        border-radius: 50%;
+        border-top-color: #507bf9;
+        animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+        margin-bottom: 25px;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading-text {
+        color: #555;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      /* 链接样式 */
+      a {
+        text-decoration: none;
+        color: #507bf9;
+        transition: all 0.2s ease;
+        font-weight: 500;
+        position: relative;
+      }
+
+      a:hover {
+        color: #3a5fd9;
+      }
+
+      a::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #507bf9, #3a5fd9);
+        transition: width 0.3s ease;
+      }
+
+      a:hover::after {
+        width: 100%;
+      }
+
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.2rem;
+        }
+
+        .comments-header {
+          padding: 18px 25px;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .comment-count {
+          margin-top: 12px;
+          align-self: flex-end;
+        }
+
+        .comments-body {
+          padding: 25px 18px;
+        }
+
+        .header-container {
+          padding: 25px 15px;
+          margin-bottom: 30px;
+        }
+
+        .content-wrapper {
+          padding: 0 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .subtitle {
+          font-size: 0.95rem;
+        }
+
+        .comments-header h2 {
+          font-size: 1.5rem;
+        }
+
+        .comments-body {
+          padding: 20px 15px;
+        }
+      }
+
+      .footer {
+        text-align: center;
+        padding: 40px 20px 20px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+        margin-top: 60px;
+        position: relative;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(80, 123, 249, 0.5),
+          transparent
+        );
+      }
+
+      .footer a {
+        color: rgba(180, 200, 255, 0.95);
+        margin: 0 10px;
+      }
+
+      .footer a:hover {
+        color: #fff;
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        background: linear-gradient(135deg, #507bf9, #3a5fd9);
+        color: white;
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: 0 6px 20px rgba(80, 123, 249, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 100;
+        border: none;
+        outline: none;
+      }
+
+      .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        background: linear-gradient(135deg, #3a5fd9, #2a4fc9);
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(80, 123, 249, 0.6);
+      }
+
+      /* 粒子背景效果 */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        background: rgba(80, 123, 249, 0.2);
+        border-radius: 50%;
+        animation: float 15s infinite linear;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-1000px) rotate(720deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 粒子背景效果 -->
+    <div class="particles" id="particles"></div>
+
+    <div class="header-container">
+      <h1>暗源网站评论区</h1>
+      <p class="subtitle">
+        畅所欲言，分享您的观点与见解。请保持友善交流，共建优质社区。
+      </p>
+    </div>
+
+    <div class="content-wrapper">
+      <div class="comments-container">
+        <div class="comments-header">
+          <h2>用户评论</h2>
+          <div class="comment-count" id="comment-count">加载中...</div>
+        </div>
+        <div class="comments-body">
+          <!-- 加载状态 -->
+          <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p class="loading-text">正在加载评论...</p>
+          </div>
+
+          <!-- Twikoo 评论容器 -->
+          <div id="tcomment"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>暗源网站 &copy; 2025 | 评论服务由 Twikoo 提供支持</p>
+      <p>
+        <a href="#" id="back-home">返回首页</a> |
+        <a href="#" id="refresh-comments">刷新评论</a> |
+        <a href="#" id="rules-link">社区规则</a>
+      </p>
+    </div>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop">↑</button>
+
+    <!-- Twikoo 脚本 -->
+    <script src="twikoo.all.min.js"></script>
+    <script>
+      // 创建粒子背景效果
+      function createParticles() {
+        const particlesContainer = document.getElementById("particles");
+        const particleCount = 30;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          // 随机大小
+          const size = Math.random() * 8 + 2;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+
+          // 随机位置
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100 + 100}%`;
+
+          // 随机动画延迟和持续时间
+          const delay = Math.random() * 5;
+          const duration = Math.random() * 10 + 15;
+          particle.style.animationDelay = `${delay}s`;
+          particle.style.animationDuration = `${duration}s`;
+
+          // 随机颜色
+          const opacity = Math.random() * 0.3 + 0.1;
+          particle.style.backgroundColor = `rgba(80, 123, 249, ${opacity})`;
+
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // 初始化 Twikoo 评论系统
+      function initTwikoo() {
+        const loadingElement = document.getElementById("loading");
+
+        twikoo
+          .init({
+            envId: "https://twikoo.xkyfzs.top/",
+            el: "#tcomment",
+            onCommentLoaded: function () {
+              // 评论加载完成后隐藏加载动画
+              if (loadingElement) {
+                loadingElement.style.display = "none";
+              }
+
+              // 更新评论数量
+              updateCommentCount();
+            },
+          })
+          .then(() => {
+            console.log("Twikoo 评论系统初始化成功");
+          })
+          .catch((error) => {
+            console.error("Twikoo 初始化失败:", error);
+            if (loadingElement) {
+              loadingElement.innerHTML = `
+                        <div style="text-align: center; color: #e74c3c;">
+                            <p style="font-size: 1.2rem; margin-bottom: 10px;">评论加载失败</p>
+                            <p>请检查网络连接或稍后重试</p>
+                            <button id="retry-btn" style="margin-top: 15px; padding: 10px 25px; background: linear-gradient(135deg, #507bf9, #3a5fd9); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 500;">重新加载</button>
+                        </div>
+                    `;
+
+              document
+                .getElementById("retry-btn")
+                .addEventListener("click", function () {
+                  location.reload();
+                });
+            }
+          });
+      }
+
+      // 更新评论数量
+      function updateCommentCount() {
+        const commentElements = document.querySelectorAll(".tk-comment");
+        const count = commentElements.length;
+        const countElement = document.getElementById("comment-count");
+
+        if (countElement) {
+          countElement.textContent =
+            count === 0 ? "暂无评论" : `${count} 条评论`;
+          countElement.style.background =
+            count > 0
+              ? "linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.15))"
+              : "rgba(255, 255, 255, 0.2)";
+        }
+      }
+
+      // 返回顶部功能
+      const backToTopBtn = document.getElementById("backToTop");
+
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.classList.add("visible");
+        } else {
+          backToTopBtn.classList.remove("visible");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // 刷新评论功能
+      document
+        .getElementById("refresh-comments")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          const loadingElement = document.getElementById("loading");
+          if (loadingElement) {
+            loadingElement.style.display = "flex";
+          }
+          location.reload();
+        });
+
+      // 返回首页功能
+      document
+        .getElementById("back-home")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          // 返回首页功能跳转地址
+          window.location.href = "/index.html";
+        });
+
+      // 社区规则链接
+      document
+        .getElementById("rules-link")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          alert(
+            "社区规则：\n\n1. 尊重他人，友善交流\n2. 禁止发布违法、违规内容\n3. 禁止恶意攻击、人身攻击\n4. 禁止发布广告、垃圾信息\n5. 保护个人隐私，不泄露他人信息"
+          );
+        });
+
+      // 页面加载完成后初始化
+      document.addEventListener("DOMContentLoaded", function () {
+        // 创建粒子背景
+        createParticles();
+
+        // 初始化 Twikoo
+        initTwikoo();
+
+        // 延迟更新评论数量（等待Twikoo完全加载）
+        setTimeout(updateCommentCount, 2000);
+
+        // 添加页面加载动画
+        document.body.style.opacity = "0";
+        document.body.style.transition = "opacity 0.5s ease";
+
+        setTimeout(() => {
+          document.body.style.opacity = "1";
+        }, 100);
+      });
+    </script>
+  </body>
+</html>
