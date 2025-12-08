@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新暗源网站</title>
+    <link rel="stylesheet" href="css/zhuye.css" />
+    <link rel="stylesheet" href="css/beian.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="暗源网站" />
+    <meta property="og:url" content="http://anyuan.xkyfzs.top/index.html" />
+    <meta property="og:site_name" content="暗源网站" />
+    <meta property="og:description" content="让更多游戏，给你带来快乐！" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta
+      property="og:image"
+      content="http://anyuan.xkyfzs.top/imgs/anyuan.png"
+    />
+    <meta property="article:author" content="无奈的程序员" />
+    <meta property="article:tag" content="暗源网站" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:image"
+      content="http://anyuan.xkyfzs.top/imgs/anyuan.png"
+    />
+    <link
+      rel="Shortcut Icon"
+      href="http://anyuan.xkyfzs.top/imgs/anyuan.png"
+      type="image/x-icon"
+    />
+  </head>
+  <script>
+          // 清除浏览器localStorage数据
+      // localStorage.clear();
+  </script>
+  <body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="/index.html" class="logo">
+          <!-- <i class="fas fa-gamepad"></i> -->
+          <span>新暗源网站</span>
+        </a>
+        <div class="nav-links">
+          <a href="/index.html" class="active">首页</a>
+          <a href="https://www.xkyfzs.top" target="_blank">博客</a>
+          <a href="comments/comments.html" target="_blank">评论区</a>
+          <a href="xuanxiang.html" target="_blank">更多选项</a>
+          <a href="about.html" target="_blank">关于网站</a>
+          <a href="#" class="nav-search" id="navSearch">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
+      </div>
+    </nav>
+    <!-- 主内容区域 -->
+    <div class="container">
+      <div class="header">
+        <h1><i class="fas fa-gamepad"></i> NEW新版暗源网站</h1>
+        <p>探索并下载您喜爱的游戏，畅享游戏的世界!</p>
+      </div>
+
+      <div class="search-container">
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="输入关键词搜索..."
+          />
+          <i class="fas fa-search search-icon"></i>
+        </div>
+      </div>
+
+      <div class="game-grid" id="gameGrid">
+        <!-- 主页内容由JavaScript动态生成 -->
+      </div>
+
+      <div class="pagination">
+        <button id="prevBtn" disabled>
+          <i class="fas fa-chevron-left"></i> 上一页
+        </button>
+        <span class="page-info"
+          >第 <span id="currentPage">1</span> 页 / 共
+          <span id="totalPages">1</span> 页</span
+        >
+        <button id="nextBtn">
+          下一页 <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <!-- 访问统计 -->
+      <div
+        style="
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          text-align: center;
+        "
+      >
+        <a
+          href="https://www.busuanzi.cc/count.php?search=anyuan.xkyfzs.top"
+          title="暗源/不蒜子统计"
+          target="_blank"
+        >
+          <img
+            style="width: 85px; height: 25px"
+            src="https://www.busuanzi.cc/static/images/bsz-tongji.png"
+          />
+        </a>
+        <div
+          style="
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+          "
+        >
+          网站访问统计
+        </div>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+          "
+        >
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 15px;
+              border-radius: 6px;
+              text-align: center;
+              border-left: 4px solid #e74c3c;
+            "
+          >
+            <div style="font-size: 14px; color: #666; margin-bottom: 5px">
+              总访问量
+            </div>
+            <div
+              style="font-size: 20px; font-weight: bold; color: #e74c3c"
+              id="busuanzi_site_pv"
+            >
+              加载中...
+            </div>
+          </div>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 15px;
+              border-radius: 6px;
+              text-align: center;
+              border-left: 4px solid #3498db;
+            "
+          >
+            <div style="font-size: 14px; color: #666; margin-bottom: 5px">
+              总访客数
+            </div>
+            <div
+              style="font-size: 20px; font-weight: bold; color: #3498db"
+              id="busuanzi_site_uv"
+            >
+              加载中...
+            </div>
+          </div>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 15px;
+              border-radius: 6px;
+              text-align: center;
+              border-left: 4px solid #2ecc71;
+            "
+          >
+            <div style="font-size: 14px; color: #666; margin-bottom: 5px">
+              今日访问量
+            </div>
+            <div
+              style="font-size: 20px; font-weight: bold; color: #2ecc71"
+              id="busuanzi_today_pv"
+            >
+              加载中...
+            </div>
+          </div>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 15px;
+              border-radius: 6px;
+              text-align: center;
+              border-left: 4px solid #9b59b6;
+            "
+          >
+            <div style="font-size: 14px; color: #666; margin-bottom: 5px">
+              今日访客数
+            </div>
+            <div
+              style="font-size: 20px; font-weight: bold; color: #9b59b6"
+              id="busuanzi_today_uv"
+            >
+              加载中...
+            </div>
+          </div>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 15px;
+              border-radius: 6px;
+              text-align: center;
+              border-left: 4px solid #f39c12;
+            "
+          >
+            <div style="font-size: 14px; color: #666; margin-bottom: 5px">
+              本页阅读量
+            </div>
+            <div
+              style="font-size: 20px; font-weight: bold; color: #f39c12"
+              id="busuanzi_page_pv"
+            >
+              加载中...
+            </div>
+          </div>
+
+          <div
+            style="
+              background: #f8f9fa;
+              padding: 15px;
+              border-radius: 6px;
+              text-align: center;
+              border-left: 4px solid #95a5a6;
+            "
+          >
+            <div style="font-size: 14px; color: #666; margin-bottom: 5px">
+              数据来源
+            </div>
+            <div style="font-size: 16px">
+              <a
+                href="https://www.busuanzi.cc/"
+                title="不蒜子统计"
+                target="_blank"
+                style="color: #666; text-decoration: none"
+                >不蒜子统计</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div style="text-align: center">
+        <p>免责声明：</p>
+        <p>
+          使用网站内容一定要严格遵守博客规章制度，本网站所有内容全部免费，请不要将内容拿去做违法的事情，否则，一切后果请用户自负，本站概不承担负责，等待您的只有法律的严惩！
+        </p>
+        <p>
+          本站所发布一半以上的下载内容及软件的文章仅限用于学习和研究目的；不得将上述内容用于商业或者非法用途，否则，一切后果请用户自负。
+        </p>
+        <p>
+          本站信息来自网络，版权争议与本站无关，您必须在下载后的
+          24个小时之内，从您的电脑中彻底删除上述内容,如果您喜欢该程序，请支持正版软件，购买注册，得到更好的正版服务。
+        </p>
+        <p>访问和下载本站内容，说明您已同意上述条款。</p>
+        <p>
+          本站为非盈利性站点，打赏功能仅仅作为用户喜欢本站捐赠打赏，本站不贩卖软件，所有内容不作为商业行为。
+        </p>
+        <p>
+          附:
+          二零零二年一月一日《计算机软件保护条例》第十七条规定：为了学习和研究软件内含的设计思想和原理，通过安装、显示、传输或者存储软件等方式使用软件的，可以不经软件著作权人许可，不向其支付报酬！鉴于此，也希望大家按此说明研究软件！
+        </p>
+        <p>
+          注：本站所有资源均来自网络转载，版权归原作者和公司所有，如果有侵犯到您的权益，请第一时间联系2995209639@qq.com邮箱：我们将配合处理！
+        </p>
+      </div>
+      <!-- <div class="footer-container">
+        <div class="footer-section">
+          <h3>关于我们</h3>
+          <p>
+            GameHub致力于为玩家提供最新、最全的游戏资源下载服务，让每一位玩家都能找到自己喜爱的游戏。
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-weibo"></i></a>
+            <a href="#"><i class="fab fa-qq"></i></a>
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>快速链接</h3>
+          <ul class="footer-links">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">游戏库</a></li>
+            <li><a href="#">热门游戏</a></li>
+            <li><a href="#">新游推荐</a></li>
+            <li><a href="#">关于我们</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>游戏分类</h3>
+          <ul class="footer-links">
+            <li><a href="#">动作游戏</a></li>
+            <li><a href="#">角色扮演</a></li>
+            <li><a href="#">模拟经营</a></li>
+            <li><a href="#">策略游戏</a></li>
+            <li><a href="#">体育竞技</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>联系我们</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-envelope"></i> 2995209639@qq.com</li>
+            <li><i class="fas fa-phone"></i> 123456789</li>
+            <li><i class="fas fa-map-marker-alt"></i> 暗源网站</li>
+          </ul>
+        </div>
+      </div> -->
+
+      <div class="footer-bottom">
+        <!-- <p>&copy; 2025 暗源网站 暗源游戏库.</p> -->
+        <p>
+          |&nbsp;&nbsp;&nbsp;&nbsp;新暗源网站测试版本&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;版本号：v0.0.1731020&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;网站编号NEWAY251019&nbsp;&nbsp;&nbsp;&nbsp;|
+        </p>
+      </div>
+    <div id="record-container"></div>
+      </footer>
+    <script src="js/beian.js"></script>
+    <script src="js/beian2.js"></script>
+    <!-- 弹窗 -->
+    <div class="popup" id="popup">
+        <div class="popup-header">
+            <div class="popup-title"><p>🎮 特别公告</p>
+              <hr>
+              <p>2025/10/21网站更新</p>
+              <p>详细信息，请看更多选项里的网站功能更新！</p>
+            </div>
+            <button class="popup-close" id="popupClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    <script>
+      // 游戏数据
+      const games = [
+        {
+          title: "记忆之城/MEMORIAPOLIS",
+          image: "https://imgs.xkyfzs.top/1gameimgs/2025072702590631jyzc20251110.jpg",
+          link: "game/jyzc1mbbhvrlg20251110.html",
+          category: "策略模拟"
+        },
+        {
+          title: "矿物防御/Mineral Defense",
+          image: "https://imgs.xkyfzs.top/1gameimgs/bo1gf8ihhhvc3dl7_e7ocokw39xxlnuoctbu8egvhwuusq_my20251110.jpg",
+          link: "game/MineralDefense20251110.html",
+          category: "塔防游戏"
+        },
+        {
+          title: "汽车制造/汽车制造模拟器/Car Manufacture",
+          image: "https://imgs.xkyfzs.top/1gameimgs/pfmpaughjpjnsqtqhoozyukmbdydfk4qd2_bcny120251110.jpg",
+          link: "game/qczzqczzmnqcbbhvrlg1.html",
+          category: "模拟经营"
+        },
+        {
+          title: "杀戮空间3/Killing Floor 3",
+          image: "https://imgs.xkyfzs.top/1gameimgs/pmhucqvklfwrzjg9xst5ety1jjknovozlyy33occbgt20251110.jpg",
+          link: "game/slkj3kbbhbrlg20251110zz.html",
+          category: "第一人称射击"
+        },
+        {
+          title: "欢欣森活/Mirthwood",
+          image: "https://imgs.xkyfzs.top/1gameimgs/2025072411543914hxsh20251110zz.jpg",
+          link: "game/hxshmbbhvrlggfjtzw.html",
+          category: "角色扮演"
+        },
+        {
+          title: "要塞十字军东征2/Stronghold Crusader 2",
+          image: "https://imgs.xkyfzs.top/1gameimgs/ysszjdz2sbbhvrldeb20251110zz.jpg",
+          link: "game/ysszjdz2sbbhvrl.html",
+          category: "即时战略"
+        },
+        {
+          title: "要塞十字军东征：决定版/Stronghold Crusader: Definitive Edition",
+          image: "https://imgs.xkyfzs.top/1gameimgs/k_okzyebkafccth_lp5kgw6u6odvocvzwsxtygpchflsvls20251110.jpg",
+          link: "game/ysszjdzjdb1sbbhvrl.html",
+          category: "即时战略"
+        },
+        {
+          title: "狂热运输2/疯狂运输2/Transport Fever 2",
+          image: "https://imgs.xkyfzs.top/1gameimgs/2025072402133144krys220251110.jpg",
+          link: "game/krys2fkys2tbbhvrlg.html",
+          category: "模拟经营"
+        },
+        {
+          title: "狂热运输1/疯狂运输1/Transport Fever",
+          image: "https://imgs.xkyfzs.top/1gameimgs/kp6membdf0zpaoj69vzveeviublvqrzachkichinkd8cya8c20251110.jpg",
+          link: "game/krys1fkys1tbbhvrlg.html",
+          category: "模拟经营"
+        },
+        {
+          title: "勇闯死人谷：暗黑之日/Into the Dead: Our Darkest Days",
+          image: "https://imgs.xkyfzs.top/1gameimgs/sxu2n7xh6s6qpikexwogfawfemtbjzxc_svrz34up4cncrh20251109.jpg",
+          link: "game/ycsrgahzri20251109bbhv.html",
+          category: "生存僵尸"
+        },
+        {
+          title: "甜蜜之家/恐怖之家/Home Sweet Home",
+          image: "https://imgs.xkyfzs.top/1gameimgs/bcfav85x9oddrfhsyntrggmdwh3xp_uw8nlqdftqojjf220251109.jpg",
+          link: "game/tmzj1kbzj1hbbhvrlg.html",
+          category: "恐怖解谜"
+        },
+        {
+          title: "恐惧地带/DREADZONE",
+          image: "https://imgs.xkyfzs.top/1gameimgs/2025072106394392kjdd20251109.jpg",
+          link: "game/kjdddbbhvrlggfjtzw.html",
+          category: "僵尸射击"
+        },
+        {
+          title: "谁在门外?/Who's at the door?",
+          image: "https://imgs.xkyfzs.top/1gameimgs/3uvshhelxgufqtkg1gisvx7om8uiaeuztmhx6wvy0cyvhv20251109.jpg",
+          link: "game/szmwwbbhvrlggfjtzw1109.html",
+          category: "恐怖解谜"
+        },
+        {
+          title: "迷你空管/Mini Airways",
+          image: "https://imgs.xkyfzs.top/1gameimgs/5mgt3morbufcdwk9yijo_vytrdqonlgyce8kqb5ajl7m20251109.jpg",
+          link: "game/mnkg1mbbhvrlggfjtzw.html",
+          category: "休闲模拟"
+        },
+        {
+          title: "空间池/POOLS",
+          image: "https://imgs.xkyfzs.top/1gameimgs/2025071815091791kjc20251109.jpg",
+          link: "game/kjcpbbhvrlggfjtzw1.html",
+          category: "解谜恐惧"
+        },
+        {
+          title: "维多利亚3/Victoria 3",
+          image: "https://imgs.xkyfzs.top/1gameimgs/a5_gskkmvpzodxqvuh8qmmchyviolpucgore_lwimhvymokf20251109.jpg",
+          link: "game/wdlyvrlggfjtzwzdxxgq.html",
+          category: "策略模拟"
+        },
+        {
+          title: "异星工厂/Factorio",
+          image: "https://imgs.xkyfzs.top/1gameimgs/mqpfnqdib_xlgoq1hdcwlcloipu1rjsmw3m5t9y1xgug620251109.jpg",
+          link: "game/yxgcfbbhvrlggfjtzw.html",
+          category: "建造模拟"
+        },
+        {
+          title: "全职猎人：NEN×IMPACT/HUNTER×HUNTER NEN×IMPACT",
+          image: "https://imgs.xkyfzs.top/1gameimgs/hunter-x-hunter-nen-x-impact-svelate-nuove-informazioni-sul-titolo20251109.jpg",
+          link: "game/HUNTERHUNTERNENIMPACT.html",
+          category: "格斗游戏"
+        },
+        {
+          title: "奈斯启示录/Necesse",
+          image: "https://imgs.xkyfzs.top/1gameimgs/ltlqn9nsnnacpj0da9yvybpnjgwwadb2hibgdhh_wj1r620251108.jpg",
+          link: "game/nsqslnbbhbrlm2025.html",
+          category: "沙盒生存"
+        },
+        {
+          title: "地壳/The Crust",
+          image: "https://imgs.xkyfzs.top/1gameimgs/1duwm16i1pha01aivlwnafp_voqux1uwarrens0dkv4gpa20251108.jpg",
+          link: "game/dqtrlggfjtzwzcjpsb.html",
+          category: "模拟建造"
+        },
+        {
+          title: "莱恩岛生存指南/Len's Island",
+          image: "https://imgs.xkyfzs.top/1gameimgs/dwlryhsnkkcaaxvhsuthpa26yeehdzzwgqpneez9xtjczs920251108.jpg",
+          link: "game/ledscznlbbhvrlg20251108.html",
+          category: "生存冒险"
+        },
+        {
+          title: "恐鬼症/Phasmophobia",
+          image: "https://imgs.xkyfzs.top/1gameimgs/202507081251265720251108.jpg",
+          link: "game/Phasmophobia20251108.html",
+          category: "恐怖合作"
+        },
+        {
+          title: "旧世界/Old World",
+          image: "https://imgs.xkyfzs.top/1gameimgs/header_schinese20251108.jpg",
+          link: "game/OldWorld20251108.html",
+          category: "策略模拟"
+        },
+        {
+          title: "艾尔登法环 黑夜君临/ELDEN RING NIGHTREIGN",
+          image: "https://imgs.xkyfzs.top/1gameimgs/TkIpZuDFTS4fGvYxsZma_hw0aupngCI4LXipMlLuXTRqFy20251108.jpg",
+          link: "game/aedfhhyjlebbhvrlgdlc.html",
+          category: "角色扮演"
+        },
+        {
+          title: "无人生还/No One Survived",
+          image: "https://imgs.xkyfzs.top/1gameimgs/y9peEcDFf1e6B0Dfn2C8b1be7T@BPIZ_DM_TNR0CtCI_4l20251108.jpg",
+          link: "game/wrshnrlggfjtzw1.html",
+          category: "僵尸冒险"
+        },
+        {
+          title: "九王/9 Kings",
+          image: "https://imgs.xkyfzs.top/1gameimgs/j87vjheygzrlwn_hupfuoihmvf6ukh9h2bsyosfczomela_d20251106.jpg",
+          link: "game/jwkrlmgfjtzwzcjpsb.html",
+          category: "策略塔防"
+        },
+        {
+          title: "绿巨人2008/不可思议的绿巨人/The Incredible Hulk",
+          image: "https://imgs.xkyfzs.top/1gameimgs/fhhlwvmrr2lwla64u71tyz7wiw820251106.jpg",
+          link: "game/TheIncredibleHulk.html",
+          category: "动作冒险"
+        },
+        {
+          title: "丧尸突袭：没有人能幸存/ZOMBIE RAID: No One Survives/支持网络联机",
+          image: "https://imgs.xkyfzs.top/1gameimgs/jcdsy5unbyl5n3b_bimiwzmoisp2ut5h_qfstglqmsg20251106.jpg",
+          link: "game/sstxmyrnxczzcwlljbdrms.html",
+          category: "射击僵尸"
+        },
+        {
+          title: "警区/The Precinct",
+          image: "https://imgs.xkyfzs.top/1gameimgs/dreodb9nh81q9idnialczca9nom9qdnytrabysbbyewosfje20251106.jpg",
+          link: "game/ThePrecinct1.html",
+          category: "警匪射击"
+        },
+        {
+          title: "小小梦魇强化版/Little Nightmares Enhanced Edition",
+          image: "https://imgs.xkyfzs.top/1gameimgs/abea3f0749deb634c4ac9263a213e2ae-120251105.jpg",
+          link: "game/xxmyqhblbbhvrlg.html",
+          category: "恐怖冒险"
+        },
+        {
+          title: "饿狼传说：群狼之城/FATAL FURY: City of the Wolves",
+          image: "https://imgs.xkyfzs.top/1gameimgs/fatal-fury-city-of-the-wolves-bogard-brothers-cropped20251104.jpg",
+          link: "game/elcsqlzcffcotw120.html",
+          category: "格斗游戏"
+        },
+        {
+          title: "战国王朝/Sengoku Dynasty",
+          image: "https://imgs.xkyfzs.top/1gameimgs/mv1z10ad5rdcda86ulcug9yq_hqpmxuqgh2mbg2v2_t0tutlq20251104.jpg",
+          link: "game/zgwcsrlgzdxxgqgrd.html",
+          category: "生存建造"
+        },
+        {
+          title: "往左一点/向左一点/A Little to the Left",
+          image: "https://imgs.xkyfzs.top/1gameimgs/a-little-to-the-left-game20251104.jpg",
+          link: "game/wzydxzydabbhvrlgleft.html",
+          category: "休闲解谜"
+        },
+        {
+          title: "TCG卡牌店模拟器/TCG Card Shop Simulator",
+          image: "https://imgs.xkyfzs.top/1gameimgs/TCGCardShopSimulator20251102.jpg",
+          link: "game/TCGCardShopSimulator.html",
+          category: "模拟经营"
+        },
+        {
+          title: "卡牌店模拟器 多人联机版/Card Shop Simulator Multiplayer",
+          image: "https://imgs.xkyfzs.top/1gameimgs/xBkF8tPTztzDVMhMvESQdD34lG@F6q4@Nr_UCfB_hBGUgha20251104.jpg",
+          link: "game/kpdmnqdrljbcbbhbr.html",
+          category: "模拟经营"
+        },
+        {
+          title: "挖油吧！爸爸/Fuel Harvest Together",
+          image: "https://imgs.xkyfzs.top/1gameimgs/sbaqe4nsh6rvufbhi79csnca4xhwup6iqiur6tv6ulx15a5h20251102.jpg",
+          link: "game/wybbbfbbhvrlg20251102.html",
+          category: "模拟经营"
+        },
+        {
+          title: "联邦控制局：防火组/FBC: Firebreak",
+          image: "https://imgs.xkyfzs.top/1gameimgs/@lWo@Q4iOUMththx9PGawiRXFLVuhIh38_TNGhnPLv5kKC@20251102.jpg",
+          link: "game/lbkzjfhzfbbhzcwlljb.html",
+          category: "动作射击"
+        },
+        {
+          title: "收获日3/PAYDAY 3",
+          image: "https://imgs.xkyfzs.top/1gameimgs/d9bfd4fd0d51764cfc06051f5ae115b720251102.jpg",
+          link: "game/shr3pzcwlljvljbrlg.html",
+          category: "合作射击"
+        },
+        {
+          title: "超自然折磨/Paranormal Torment",
+          image: "https://imgs.xkyfzs.top/1gameimgs/56x3t1qabxhcpjdbidogw0yuoasf4mchujworofzwcbw4_s20251102.jpg",
+          link: "game/czrzmpbbhvrlg100.html",
+          category: "恐怖冒险"
+        },
+        {
+          title: "云族裔/inZOI",
+          image: "https://imgs.xkyfzs.top/1gameimgs/9jenmty72wtimciztzdbvbxibi4vzz6icnpe9saqcpnck8rp20251002.jpg",
+          link: "game/game/iyzygfzwbbhv.html",
+          category: "生活模拟"
+        },
+        {
+          title: "易红2/浅红2/轻松挂彩2/Easy Red 2",
+          image: "https://imgs.xkyfzs.top/1gameimgs/yh2qhqsgcebbhvrlg20251102.jpg",
+          link: "game/yh2qhqsgcebbhvrlg.html",
+          category: "第一人称射击"
+        },
+        {
+          title: "孤岛惊魂4/Far Cry 4",
+          image: "https://imgs.xkyfzs.top/1gameimgs/zpfuszw_rzgz04csboc4fx3k6mtov8l5jpyhiwft3dohg420251102.jpg",
+          link: "game/gdjh4fbbhvrlg.html",
+          category: "角色扮演"
+        },
+        {
+          title: "拆迁/Teardown",
+          image: "https://imgs.xkyfzs.top/1gameimgs/wuh8qf4jocrwh4lgsk1vjiatq5iexmon0i_enewjxhgdr20251102.jpg",
+          link: "game/Teardown20251102.html",
+          category: "物理模拟"
+        },
+        {
+          title: "疯人院/ASYLUM",
+          image: "https://imgs.xkyfzs.top/1gameimgs/cmkprs4irwwgcjsivkggef69fm0amfjds7butglqefhfi20251102.jpg",
+          link: "game/fryarlggfybywzc20251102.html",
+          category: "恐怖冒险"
+        },
+        {
+          title: "战锤40,000：战区/战锤40K：战斗区域/Warhammer 40,000: Battlesector",
+          image: "https://imgs.xkyfzs.top/1gameimgs/egs_warhammer40000battlesector_blacklabgames_s3_2560x1440-dd42edda3befb18ad52397abbefcfbaa20251102.jpg",
+          link: "game/zc4000zqzckzdqywrlg.html",
+          category: "策略战棋"
+        },
+        {
+          title: "烽沙 demo/Mandate Order demo",
+          image: "https://imgs.xkyfzs.top/1gameimgs/library_header_fenngshademo20251102.jpg",
+          link: "game/chinafengshademo.html",
+          category: "模拟策略"
+        },
+        {
+          title: "战争遗产合集/Warfare Legacy Collection",
+          image: "https://imgs.xkyfzs.top/1gameimgs/bu9hwjow2okbjyfp_n7s8rbhv27k8mxzq4j1eecse0vzls20251102.jpg",
+          link: "game/zzychjwbbhvrlg100.html",
+          category: "策略战争"
+        },
+        {
+          title: "拳皇13：全球对决/THE KING OF FIGHTERS XIII GLOBAL MATCH",
+          image: "https://imgs.xkyfzs.top/1gameimgs/kof13um-op-beta_06-01-23-1024x57-120251102.jpg",
+          link: "game/qh13qqdjtbbhbrlg.html",
+          category: "格斗游戏"
+        },
+        {
+          title: "小小暖屋/Small Spaces",
+          image: "https://imgs.xkyfzs.top/1gameimgs/xxnwheader_alt_assets_100.jpg",
+          link: "game/xxnwzsb20251031.html",
+          category: "休闲模拟"
+        },
+        {
+          title: "全面战争：中世纪2最终版/Total War: MEDIEVAL II – Definitive Edition",
+          image: "https://imgs.xkyfzs.top/1gameimgs/tqa4ir26vptffj86buk7eaiwn4btctamb_ls7zzzo2ss20251031.jpg",
+          link: "game/qmzzzsj220251031.html",
+          category: "策略战争"
+        },
+        {
+          title: "逃离塔科夫/Escape from Tarkov",
+          image: "https://imgs.xkyfzs.top/1gameimgs/tltkf20251030.jpg",
+          link: "game/tltkfebbhvlxb20251030.html",
+          category: "硬核射击"
+        },
+        {
+          title: "最后纪元/Last Epoch",
+          image: "https://imgs.xkyfzs.top/1gameimgs/le_dwadawdart_960-54020251030.jpg",
+          link: "game/zhjylrlgzdxxgq20251030.html",
+          category: "角色扮演"
+        },
+        {
+          title: "消防模拟：火苗燃动/Firefighting Simulator: Ignite",
+          image: "https://imgs.xkyfzs.top/1gameimgs/FirefightingSimulatorIgnite20251029.jpg",
+          link: "game/FirefightingSimulatorIgnite.html",
+          category: "角色扮演"
+        },
+        {
+          title: "警察模拟器：巡警/Police Simulator: Patrol Officers",
+          image: "https://imgs.xkyfzs.top/1gameimgs/3XYfrCwfb0_8vQdvs1NNsBkfgff7ep4e4rSEn7nQaeaXcR@20251029.jpg",
+          link: "game/jcmnq1xjprlg.html",
+          category: "角色扮演"
+        },
+        {
+          title: "消防模拟/警情模拟/急救模拟/Flashing Lights Chief Edition",
+          image: "https://imgs.xkyfzs.top/1gameimgs/YJGMo6O7y26FJIf27KmNcUX9JTDD54bMsgELZV0xn1wMPkcH20251029.jpg",
+          link: "game/xfmnjqmnjjmnfbbh.html",
+          category: "角色扮演"
+        },
+        {
+          title: "末日地带2/Endzone 2",
+          image: "https://imgs.xkyfzs.top/1gameimgs/5yjy4do4goand3snxcy6espibjlf5kuwakq04tnrilrj0n20251029.jpg",
+          link: "game/mrdd2ebbh.html",
+          category: "末日生存"
+        },
+        {
+          title: "双影奇境/SPLIT FICTION",
+          image: "https://imgs.xkyfzs.top/1gameimgs/a3gpshwe3ogbnpatpj4qtcg7xvrnsnh4cobvkd0hoz6zzafwa20251029.jpg",
+          link: "game/shwj8czrbbhvrlggfjt.html",
+          category: "分屏解密"
+        },
+        {
+          title: "生化危机8：村庄/Resident Evil Village",
+          image: "https://imgs.xkyfzs.top/1gameimgs/uahzvcfpcjic7t4awjwwjescrvm16zshqye_wk_klwnpn120251029.jpg",
+          link: "game/shwj8czrbbhvrlggfjt.html",
+          category: "冒险恐怖"
+        },
+        {
+          title: "生化危机7：黄金版/Resident Evil 7 Biohazard",
+          image: "https://imgs.xkyfzs.top/1gameimgs/qgspqvqpzwnho1wgkbaycy4i_y5eimun5quirzmlg9n9jpp20251029.jpg",
+          link: "game/shwj7hjbrbbhvrlg.html",
+          category: "冒险恐怖"
+        },
+        {
+          title: "生化危机6：完整版/Resident Evil 6 Complete",
+          image: "https://imgs.xkyfzs.top/1gameimgs/0paq01nioyma2fnqdagomalt7itjiwnrrgfoeywtu9zqq20251029.jpg",
+          link: "game/shwj6rbbhvrlg.html",
+          category: "冒险恐怖"
+        },
+        {
+          title: "生化危机5：黄金版/Resident Evil 5：Gold Edition",
+          image: "https://imgs.xkyfzs.top/1gameimgs/library_hero-45d545-54_20251029.jpg",
+          link: "game/shwj5hjbrgbbhvrlg.html",
+          category: "冒险恐怖"
+        },
+        {
+          title: "生化危机4：重制版/Resident Evil 4",
+          image: "https://imgs.xkyfzs.top/1gameimgs/wp1211672020251029.jpg",
+          link: "game/shwj4czbrbbhbrlggfj.html",
+          category: "冒险恐怖"
+        },
+        {
+          title: "生化危机3：重制版/Resident Evil 3:Remake",
+          image: "https://imgs.xkyfzs.top/1gameimgs/library_hero_koreana20251029.jpg",
+          link: "game/shwj3czbrrlggfjtzwg.html",
+          category: "冒险恐怖"
+        },
+        {
+          title: "生化危机2：重制版/Resident Evil 2 : Remake",
+          image: "https://imgs.xkyfzs.top/1gameimgs/nyzdveftsncaluzvlqb8ddmtubq1jugsqqjtdcz4uzju0tv20251028.jpg",
+          link: "game/shwj2czbrbbhvgfjtzw.html",
+          category: "冒险恐怖"
+        },
+        {
+          title: "拳皇15/THE KING OF FIGHTERS XV",
+          image: "https://imgs.xkyfzs.top/1gameimgs/zflbjvdly1uwzraseqrw0tz5ksy06xu64f8m9zgbajtesr_u20251028.jpg",
+          link: "game/thekingoffighter15.html",
+          category: "街机格斗"
+        },
+        {
+          title: "拳皇2002：终极之战/The King of Fighters 2002 Unlimited Match",
+          image: "https://imgs.xkyfzs.top/1gameimgs/6xdqlpnzluelv_uxih5k793_9qg1kcd9r2jisvvnpfquar20251028.jpg",
+          link: "game/qh2002zjzztrlggfrwyw.html",
+          category: "街机格斗"
+        },
+        {
+          title: "死神VS火影/Bleach VS Naruto",
+          image: "https://imgs.xkyfzs.top/1gameimgs/sishenvshuoying20251028.jpg",
+          link: "game/ssvhybbbhqbbljb.html",
+          category: "街机格斗"
+        },
+        {
+          title: "漫威蜘蛛侠2/Marvel's Spider-Man 2",
+          image: "https://imgs.xkyfzs.top/1gameimgs/urxsxwh2jkiz04evrdeikvcbgi0v3nfikxt7clkp9e9mwtn20251028.jpg",
+          link: "game/mwzzx2pc.html",
+          category: "动作冒险"
+        },
+        {
+          title: "生化危机HD：重制版1/Resident Evil HD REMASTER",
+          image: "https://imgs.xkyfzs.top/1gameimgs/pxk9iutsoqh9wpstrjdlpc04gxfhjth_8uwgjhvwz3bnoo820251028.jpg",
+          link: "game/shwjhdczb.html",
+          category: "冒险恐怖"
+        },
+        {
+          title: "生化危机：启示录2/Resident Evil Revelations 2",
+          image: "https://imgs.xkyfzs.top/1gameimgs/h2x1_nswitchds_residentevilrevelations2_image1600w20251028.jpg",
+          link: "game/shwjqslr2.html",
+          category: "冒险恐怖"
+        },
+        {
+          title: "使命召唤19：现代战争2/Call of Duty: Modern Warfare II",
+          image: "https://imgs.xkyfzs.top/1gameimgs/fuwo3kvhdtsop_fv2w_da9xfsed5uppazu5ktsuw6ad_20251023.jpg",
+          link: "game/CallofDutyModernWarfare19.html",
+          category: "第一人称射击"
+        },
+        {
+          title: "使命召唤18：先锋/Call of Duty: Vanguard",
+          image: "https://imgs.xkyfzs.top/1gameimgs/be_0h27okgbd_egikx57nex8ypkqh_n5iyp8vatzwurz_qac20251023.jpg",
+          link: "game/CallofDutyVanguard18.html",
+          category: "第一人称射击"
+        },
+        {
+          title: "使命召唤17：黑色行动冷战/Call of Duty: Black Ops Cold War",
+          image: "https://imgs.xkyfzs.top/1gameimgs/CallofDutyBlackOpsColdWar1720251023.jpg",
+          link: "game/CallofDutyBlackOpsColdWar17.html",
+          category: "第一人称射击"
+        },
+        {
+          title: "使命召唤16：现代战争/Call of Duty: Modern Warfare",
+          image: "https://imgs.xkyfzs.top/1gameimgs/fuu0wpz9delmouapsq2v5wi5divulugkmbtseih2nxfxhl20251023.jpg",
+          link: "game/CallofDutyModernWarfare16.html",
+          category: "第一人称射击"
+        },
+        {
+          title: "帝国时代4：周年纪念版/Age of Empires IV: Anniversary Edition",
+          image: "https://imgs.xkyfzs.top/1gameimgs/4_kdip_4svxjecldzdqpz2mxklwbxpd12elpri3qhxxf20251023.jpg",
+          link: "game/dgsdabbhvljb.html",
+          category: "即时战略"
+        },
+        {
+          title: "帝国时代2：决定版/Age of Empires II: Definitive Edition",
+          image: "https://imgs.xkyfzs.top/1gameimgs/35F28enY0ckX99ltkKNEtUAplFZZH0yLOAdX9Shk6uUhS20251023.jpg",
+          link: "game/dgsdjdbabbhv2.html",
+          category: "即时战略"
+        },
+        {
+          title: "工人与资源：苏维埃共和国/Workers and Resources Soviet Republic",
+          image: "https://imgs.xkyfzs.top/1gameimgs/workers-and-resources-soviet-republic20251023.jpg",
+          link: "game/gryzyswaghgw.html",
+          category: "模拟建造"
+        },
+        {
+          title: "心灵杀手2 / Alan Wake 2",
+          image: "https://imgs.xkyfzs.top/1gameimgs/bwxdfu_27es57zlmp4eycunyx1sclw3cah3ukysch1yg8bzp20251023.jpg",
+          link: "game/xlssa20251023.html",
+          category: "生存恐怖"
+        },
+        {
+          title: "夺宝奇兵：古老之圈/Indiana Jones and the Great Circle",
+          image: "https://imgs.xkyfzs.top/1gameimgs/be_wuv17tgfs2a1qx7d2fyxvbh88z0az_ybt91f5u2cfl20251023.jpg",
+          link: "game/dbqbglzqi.html",
+          category: "动作冒险"
+        },
+        {
+          title: "侏罗纪世界：进化3/Jurassic World Evolution 3",
+          image: "https://imgs.xkyfzs.top/1gameimgs/zhuluoji320251022.jpg",
+          link: "game/zhuluoji3.html",
+          category: "模拟经营",
+        },
+        {
+          title: "寂静岭2重置版/Silent Hill 2 Remake",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/zx4u8q26nqb8h9tw6vvjy25brn_x5luxfosgy12aqsfdqaemos20251021.jpg",
+          link: "game/jjl2czb20251021.html",
+          category: "冒险恐怖",
+        },
+        {
+          title: "翼星求生/ICARUS",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/_egeqt8kcyzvudjcxm9hguidstr_ogdq0_hax1tfgdkv8r320251021.jpg",
+          link: "game/yxqs123456.html",
+          category: "探索冒险",
+        },
+        {
+          title: "天国：拯救2/Kingdom Come: Deliverance II",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/gujop63ffyu6xopy9g61avt40teyxly3cgfrvhpde40lgy20251021.jpg",
+          link: "game/tgzj220251021.html",
+          category: "角色扮演",
+        },
+        {
+          title: "真・三国无双 起源/DYNASTY WARRIORS ORIGINS",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/fsqpvpeyyaqga2cnvhby7gewh_jnegtpqvnf8zcgorvat20251019.jpg",
+          link: "game/zsgwsqy123456.html",
+          category: "动作砍杀",
+        },
+        {
+          title: "电脑修理商店/电脑维修商店/Computer Repair Shop",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/1fnkewu1jb2sv5qx9b8szudasi0uszrf8rxqougdov2hh20251016.jpg",
+          link: "game/dnwxsddnxlsd.html",
+          category: "模拟经营",
+        },
+        {
+          title: "巫师3：狂猎次世代版/The Witcher 3: Wild Hunt",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/le5urdpzlwtm4ljnnhgndku93naymwohr1en5_nkaecvdtxb20251016.jpg",
+          link: "game/ws3klcsdb.html",
+          category: "角色扮演",
+        },
+        {
+          title: "僵尸毁灭工程/Project Zomboid",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/hfea8e7oj2basquvbptw1fb8_p_5d0_lsn5ywpu8xxltltk20251016.jpg",
+          link: "game/jshmgcpbbhb.html",
+          category: "生存模拟",
+        },
+        {
+          title: "模拟农场25/Farming Simulator 25",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/rezuheooqoyhp21gcmojauomelcqpaks5lrjn0etv42cjks20251016.jpg",
+          link: "game/mnnc2025.html",
+          category: "模拟经营",
+        },
+        {
+          title: "消逝的光芒：仇恨/Dying Light: Bad Blood",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/9ox_itiya4dq2zgvnbjr7cfbhm8lhlq98zz0f7y2co3xtri20251016.jpg",
+          link: "game/xsdgmchljb.html",
+          category: "动作冒险",
+        },
+        {
+          title: "埃及建设者/Builders of Egypt",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/duq9dcsn8r41anrxchdo4r6e_ba6nn08ihpobevg4ociojma20251016.jpg",
+          link: "game/buildersofEgypt.html",
+          category: "城市建设",
+        },
+        {
+          title: "最后的生还者2重制版/The Last of Us Part II Remastered",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/wra7g1zslzhzxvh4i9juyajncvxhxpnpyybdwlavp8d20251016.jpg",
+          link: "game/zhdshzczbt2.html",
+          category: "动作冒险",
+        },
+        {
+          title: "星球大战 绝地：幸存者/STAR WARS Jedi Survivor",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/E4IIsZpnCCVzkcq@rAHXAUdth0YYsuSEMI8EYcaJAvb6OObg20251016.jpg",
+          link: "game/xqdzjdxczs1.html",
+          category: "动作冒险",
+        },
+        {
+          title: "腐烂国度2:主宰巨霸版/State of Decay 2: Juggernaut Edition",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/n_vzmbsv6na64sh17ud4jf_vqxn5vdyyy3x5znapamckiacla20251016.jpg",
+          link: "game/flgdzzjbbszwb2.html",
+          category: "生存冒险",
+        },
+        {
+          title: "遗迹2/Remnant II",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/ycg96ystxhe7hedbaou_vyl3pgwlmgzbek7xg63eyhvqalep520251016.jpg",
+          link: "game/yjrgzgypy2.html",
+          category: "动作射击",
+        },
+        {
+          title: "最终幻想15/Final Fantasy XV",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/65e6x_jf3te3t9wpz85ipdbma09qsn5ljqghl1pcsuqqflc20251016.jpg",
+          link: "game/zzhx15ffxv.html",
+          category: "角色扮演",
+        },
+        {
+          title: "尘埃5/Dirt 5",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/jafvgldfcufdih0nwa_u1z9moyuttvi6hzw2ezb3hzactw20251016.jpg",
+          link: "game/cadbbhvljbkkwp.html",
+          category: "赛车竞速",
+        },
+        {
+          title: "弗兰克·斯通的阴影/The Casting of Frank Stone",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/djut7icvs6ytry5d1nyvm3h9ie5nnl4twi8hlrqiq58ht20251016.jpg",
+          link: "game/flkstdyyt.html",
+          category: "恐怖冒险",
+        },
+        {
+          title: "冰汽时代2/Frostpunk 2",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/yu2xuqpsdh63t_jzy2bge739ucwavppv6n4eeqlta1uu3y20251015.jpg",
+          link: "game/hspkbqsdfbbhb2.html",
+          category: "策略生存",
+        },
+        {
+          title: "寒霜朋克1/冰汽时代1/Frostpunk",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/2e629koagwl61orqtwkpebtdgnl7kp0_v0ctk8xizyr20251015.jpg",
+          link: "game/hspkbqsdfbbhb1.html",
+          category: "策略生存",
+        },
+        {
+          title: "三国志8重置版/三国志8 REMAKE",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/dke08qaydx5fxqhf72aakatooamix7fsm8l3ewojmny18220251015.jpg",
+          link: "game/sgz8czbsgzrbbhv.html",
+          category: "策略模拟",
+        },
+        {
+          title: "侠盗猎车手：圣安地列斯/GTA San Andreas",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/fszizh7wjoz2gpfjbb5tvxlpeo1moyciw76axhcwgkd8s.jpg",
+          link: "game/xdlcssadlsjdbczbg.html",
+          category: "动作冒险",
+        },
+        {
+          title: "侠盗猎车手：罪恶都市/Grand Theft Auto：Vice City",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/hns9hafb43msi01lstpnzbtl5qr7o_65mkwizdp_mn.jpg",
+          link: "game/xdlcszedsgvbbhczb.html",
+          category: "动作冒险",
+        },
+        {
+          title: "方舟: 生存飞升/ARK Survival Ascended",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/5kvhzsiwakg0tqoohhpded4uq3fj0hjq6uwhgzr7jf6r.jpg",
+          link: "game/fzscssfzscfsarlg.html",
+          category: "生存冒险",
+        },
+        {
+          title: "领地人生：林中村落/Life is Feudal: Forest Village",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/ylqn5qgize80vxs2om8hakqy7uzsaxkkwg6wycfeguupw2gn.jpg",
+          link: "game/ldrslzcl123456.html",
+          category: "模拟建造",
+        },
+        {
+          title: "看门狗：军团/看门狗3/Watch Dogs: Legion",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/1lnlzs841vzoziod5tgx7up1as92nle9wmvdcizqq5lmaf.jpg",
+          link: "game/kmgjtkmg3.html",
+          category: "动作冒险",
+        },
+        {
+          title: "最远的边陲/Farthest Frontier",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/d3dgrstbrknbzy6xikvy62flgfkfelyuqd2viz6udcqjlunsi.jpg",
+          link: "game/zydbc123456.html",
+          category: "城市建设",
+        },
+        {
+          title: "众神陨落/Godfall",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/y9y5paouydsu3iktgifydoplniof9bjnik9eeskr0j4oqvuq.jpg",
+          link: "game/Godfall.html",
+          category: "动作角色扮演",
+        },
+        {
+          title: "全面战争：战锤2/Total War: WARHAMMER II",
+          image: "https://imgs.xkyfzs.top/1gameimgs/qmzzzc201.jpg",
+          link: "game/qmzzzc2.html",
+          category: "策略战争",
+        },
+        {
+          title: "刺客信条：幻景/Assassin's Creed Mirage",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/jpk439belcll8gvheroupem8s4cfklftidhjaxwkt01ueus.jpg",
+          link: "game/ckxthjyb.html",
+          category: "动作冒险",
+        },
+        {
+          title: "战神5/战神：诸神黄昏/God of War Ragnarok",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/vpklaikk4ez3ntfnuwyyooad9qo69aqlm02rc5pcvhposmnr.jpg",
+          link: "game/zszszshhgbbhv.html",
+          category: "动作冒险",
+        },
+        {
+          title: "战神4/God of War",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/pdkpnvxpedasxslf3bfyaqpzs_tsa7mmdjflg9mw3ybq1.jpg",
+          link: "game/zsgbbhvzwb.html",
+          category: "动作冒险",
+        },
+        {
+          title: "今晚没开2/今晚不行2/Not Tonight 2",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/sa4cpoh7y7kd3mpszzgzbdfv9gadfdy3cpkh9qo8ou0lypk.jpg",
+          link: "game/jwmkjwbx2.html",
+          category: "模拟经营",
+        },
+        {
+          title: "今晚没开1/今晚不行1/Not Tonight",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/ppafrul4_d2vbnb0r4tk1qizvsjnbriavvxd6utib73v1hs3.jpg",
+          link: "game/jwmkjwbx1.html",
+          category: "模拟经营",
+        },
+        {
+          title: "抗日：血战上海滩/Shanghai Blood of War",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/otgijbkqfi4bq0sdhz7sdnr_ib2jii5yeo_e1cxlfkvzoxwrc.jpg",
+          link: "game/krxzsht.html",
+          category: "第一人称射击",
+        },
+        {
+          title: "极限竞速：赛车运动/Forza Motorsport",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/mh9i5f_ndul8niz_oqi5ogbechdtmgldemqutzr1vdhx.jpg",
+          link: "game/jxjsjxjsscydfbbhv.html",
+          category: "赛车竞速",
+        },
+        {
+          title: "枪械模拟器/枪匠模拟器/Gunsmith Simulator",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/vz8bjycxj4mu63uiu2ulylfoqohyccd_vqdylnnhjmxlhcb.jpg",
+          link: "game/qjmnnq1.html",
+          category: "模拟经营",
+        },
+        {
+          title: "叛乱：沙漠风暴/Insurgency Sandstorm",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/qg2ylrqwa2vttylgmqvzzsl_uzj1mziemz1na08hno79o.jpg",
+          link: "game/plsmfbibbhv.html",
+          category: "战术射击",
+        },
+        {
+          title: "沙威玛传奇/Shawarma Legend",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/i1u6ta7qpzxwx2plxu1v188h_dny5owtxjjkb6heuawr.jpg",
+          link: "game/swmcq123456.html",
+          category: "模拟经营",
+        },
+        {
+          title: "战争之人：突击小队2/Men of War 2",
+          image: "https://imgs.xkyfzs.top/1gameimgs/men-of-war-ii-94nog.jpg",
+          link: "game/zzzr2.html",
+          category: "即时战略",
+        },
+        {
+          title: "战争之人/Men of War",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/men-of-war-assault-squad-12jmt.jpg",
+          link: "game/zzzr1.html",
+          category: "即时战略",
+        },
+        {
+          title: "战争号令/战争召唤/Call to Arms",
+          image: "https://imgs.xkyfzs.top/1gameimgs/zzhlzzzh.jpg",
+          link: "game/zzhlzzzh.html",
+          category: "即时战略",
+        },
+        {
+          title: "战争召唤—地狱之门：东线/Call to Arms Gates of Hell Ostfront",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/vsrep_v2nfqzowwqd260ozjimfdcvwkwrhwhsjilupafan3o.jpg",
+          link: "game/zzzhdyzmdx.html",
+          category: "即时战略",
+        },
+        {
+          title: "底特律：化身为人/Detroit: Become Human",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/xjwk9y91beeruhvqtf1eelq6s7gj1sxwhecki5cmgz6ziz.jpg",
+          link: "game/dtlhswr.html",
+          category: "互动电影",
+        },
+        {
+          title: "铁路在线/RAILROADS Online",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/wyyxerszmd5u3hxyzs2xypzx7xa_p8yfva7erzlvdvutqe.jpg",
+          link: "game/tlzx123456.html",
+          category: "模拟经营",
+        },
+        {
+          title: "漫威复仇者联盟/Marvel's Avengers – The Definitive",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/tzv6cmq7nvhznr__0ouikfxu6tvput1dtjzaotv8elbbsrq2lo.jpg",
+          link: "game/mwfczlmzjb.html",
+          category: "动作冒险",
+        },
+        {
+          title:
+            "网吧&超市模拟器2024/Internet Cafe and Supermarket Simulator 2024",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/dqewmcsf5zun26bkoankawdi6hmx4plohavnbykamw8_.jpg",
+          link: "game/wbcsmnq2024.html",
+          category: "模拟经营",
+        },
+        {
+          title: "网吧模拟器2/Internet Cafe Simulator 2",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/itqj9e9nk5v4aq03tpmnxntxdf14ipldgm7hfo0duqnytgy.jpg",
+          link: "game/wbmnq2.html",
+          category: "模拟经营",
+        },
+        {
+          title: "网吧模拟器1/Internet Cafe Simulator",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/1ighfbs0zbhdt5p9j0r0vjrllvzkitqslx6ecgp3ijelxn.jpg",
+          link: "game/wbmnq1.html",
+          category: "模拟经营",
+        },
+        {
+          title: "植物大战僵尸多版本/Plants vs. Zombies GOTY Edition",
+          image: "https://imgs.xkyfzs.top/1gameimgs/zwdzjsdqzhb123456.jpg",
+          link: "game/zwdzjshj.html",
+          category: "塔防游戏",
+        },
+        {
+          title: "小偷模拟器2/Thief Simulator 2",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/nhnklm2sr2xpwwucmijrdxdsuo1ioi4vsaebnisb2p3s1k.jpg",
+          link: "game/xtmnq2.html",
+          category: "模拟经营",
+        },
+        {
+          title: "小偷模拟器1/Thief Simulator",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/kyvw6dwmmhbgdphvoyncpvyrvamyamfcdgcr6qxjjxnzljcm.jpg",
+          link: "game/xtmnq1.html",
+          category: "模拟经营",
+        },
+        {
+          title: "心灵杀手：重置版/Alan Wake Remastered",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/83hzewpjumb5cgd986evqmrkngq2zrsgbr0kmjhqtojx5tj.jpg",
+          link: "game/xlssczb.html",
+          category: "动作冒险",
+        },
+        {
+          title: "顶尖决胜/TIEBREAK: Official game of the ATP and WTA",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/d7edde3fgdaska1fyoc3neruqwn3aib7ehtjs8j9lfeq9r.jpg",
+          link: "game/djjs1.html",
+          category: "体育竞技",
+        },
+        {
+          title: "史诗战争模拟器2/Ultimate Epic Battle Simulator 2",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/pg2x86llxeys9zthrztks6vegrxzmjzjavwptwkuuz.jpg",
+          link: "game/ssqmzzmnq2.html",
+          category: "策略模拟",
+        },
+        {
+          title: "史诗战争模拟器/Ultimate Epic Battle Simulator",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/qtcpwgcs8ewsah_hnnvvnzwp9oqm79zelnnusv3jlpnehn.jpg",
+          link: "game/ssqmzzmnq.html",
+          category: "策略模拟",
+        },
+        {
+          title:
+            "孤岛惊魂5/孤岛惊魂1//孤岛惊魂2/孤岛惊魂3/孤岛惊魂4/Far Cry 5|Far Cry 1/Far Cry 2/Far Cry 3/Far Cry 4",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/1ogrgb9jmh37xe6zkjhq9collcjglmuj1ngmtvai_iztlqw.jpg",
+          link: "game/gdjh5yb.html",
+          category: "第一人称射击",
+        },
+        {
+          title: "逃出生天/A way out",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/uuoonigqxolewkfaax_z3z9udsir3icubixr9ritpclqf.jpg",
+          link: "game/tcstea.html",
+          category: "合作冒险",
+        },
+        {
+          title: "双人成行/It Takes Two",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/dxvohhxed6acu_ffcyszi3v8bfjys7fuzbbm3cofwq1_pp.jpg",
+          link: "game/srcxea.html",
+          category: "合作冒险",
+        },
+        {
+          title: "僵尸世界大战：劫后余生/World War Z Aftermath",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/uh5r5fgfmrh1nzzpzdpj7qo5khpucc4b0nqyvqr8gdf.jpg",
+          link: "game/jssjdzjhys.html",
+          category: "丧尸射击",
+        },
+        {
+          title: "PC大亨2/电脑大亨2/PC Tycoon 2",
+          image: "https://imgs.xkyfzs.top/1gameimgs/pctycoon 201.jpg",
+          link: "game/pctycoon2.html",
+          category: "模拟经营",
+        },
+        {
+          title:
+            "城市游戏工作室/City Game Studio: Your Game Dev Adventure Begins",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/isletviphvbvfiics6ta7rocvwp6ue2pgjqmpsd4aza5v.jpg",
+          link: "game/csyxgzs123.html",
+          category: "模拟经营",
+        },
+        {
+          title: "猎人：荒野的召唤/theHunter: Call of the Wild",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/8siuzzu91ds9ev83g9wv388eo9sdnm4_sbqh3fwbnenv7uw0.jpg",
+          link: "game/lrhydzh.html",
+          category: "狩猎模拟",
+        },
+        {
+          title: "潜行者2：切尔诺贝利之心/S.T.A.L.K.E.R 2 Heart of Chornobyl",
+          image: "https://imgs.xkyfzs.top/1gameimgs/G63Nrp5@@by@WPVGjIKzx.jpg",
+          link: "game/qxzqenblzx.html",
+          category: "第一人称射击",
+        },
+        {
+          title: "沉没之地/Sunkenland",
+          image: "https://imgs.xkyfzs.top/1gameimgs/sunkenland.jpg",
+          link: "game/sunkenland.html",
+          category: "生存建造",
+        },
+        {
+          title: "霍格沃兹之遗/Hogwarts Legacy",
+          image: "https://imgs.xkyfzs.top/1gameimgs/hgwczy1.jpg",
+          link: "game/hgwczy.html",
+          category: "动作角色扮演",
+        },
+        {
+          title:
+            "正当防卫1/正当防卫2/正当防卫3/正当防卫4/Just Cause 1/Just Cause 2/Just Cause 3/Just Cause 4",
+          image: "https://imgs.xkyfzs.top/1gameimgs/zhengdangfangwei.jpg",
+          link: "game/zdfw1234.html",
+          category: "动作冒险",
+        },
+        {
+          title: "城市:天际线:山村/Cities: Skylines-Mountain Village",
+          image: "https://imgs.xkyfzs.top/1gameimgs/cstjxsc1.jpg",
+          link: "game/cstjxschhbc.html",
+          category: "模拟建造",
+        },
+        {
+          title: "油管主播的生活2/Youtubers Life 2",
+          image: "https://imgs.xkyfzs.top/1gameimgs/Youtubers-Life2.jpg",
+          link: "game/ygzbdshybbv-2.html",
+          category: "模拟经营",
+        },
+        {
+          title: "王国重生/Kingdoms Reborn",
+          image: "https://imgs.xkyfzs.top/wgcs/1.jpg",
+          link: "game/4g1bj92n.html",
+          category: "策略模拟",
+        },
+        {
+          title: "被感染者/The Infected",
+          image: "https://imgs.xkyfzs.top/bgrz/1.jpg",
+          link: "game/bgrz1319.html",
+          category: "生存冒险",
+        },
+        {
+          title: "拳皇97/拳皇98/THE KING OF FIGHTERS '97/98",
+          image: "https://imgs.xkyfzs.top/2077/qh9798.jpg",
+          link: "game/qh3376.html",
+          category: "格斗游戏",
+        },
+        {
+          title: "超阈限空间/Superliminal",
+          image: "https://imgs.xkyfzs.top/cyxkj/1.webp",
+          link: "game/cyxkj8648.html",
+          category: "解谜游戏",
+        },
+        {
+          title: "龙珠Z：卡卡罗特/DRAGON BALL Z: KAKAROT",
+          image: "https://imgs.xkyfzs.top/lzzkklt/1.webp",
+          link: "game/lzzkklt4728.html",
+          category: "动作角色扮演",
+        },
+        {
+          title: "龙珠战士Z/龙珠格斗Z/龙珠斗士Z/DRAGON BALL Fighter Z",
+          image: "https://imgs.xkyfzs.top/lzgdz/1.webp",
+          link: "game/lzgdz2530.html",
+          category: "格斗游戏",
+        },
+        {
+          title: "合金弹头合集/METAL SLUG 1/2/3/4/重装上阵",
+          image: "https://imgs.xkyfzs.top/2077/hejindantou.jpg",
+          link: "game/hjdt4578.html",
+          category: "横版射击",
+        },
+        {
+          title: "林间小世界/Tiny Glade",
+          image: "https://imgs.xkyfzs.top/clxsj/1.jpg",
+          link: "game/ljxsj2703.html",
+          category: "休闲建造",
+        },
+        {
+          title: "取景器/Viewfinder",
+          image: "https://imgs.xkyfzs.top/qjq/qjq1.webp",
+          link: "game/qjq8996.html",
+          category: "解谜游戏",
+        },
+        {
+          title: "讲故事的人/Storyteller",
+          image: "https://imgs.xkyfzs.top/jgs/1.jpg",
+          link: "game/jgs6259.html",
+          category: "解谜游戏",
+        },
+        {
+          title: "百视达公司/Blockbuster Inc.",
+          image: "https://imgs.xkyfzs.top/bsd/33.jpg",
+          link: "game/bsd5215.html",
+          category: "模拟经营",
+        },
+        {
+          title: "全面战争大清帝国/Total War: Qing Empire",
+          image: "https://imgs.xkyfzs.top/dq/dqdg.jpg",
+          link: "game/dq8433.html",
+          category: "策略战争",
+        },
+        {
+          title:
+            "女鬼桥1开魂路/女鬼桥2释魂路/The Bridge Curse: Road to Salvation/The Bridge Curse 2 The Extrication",
+          image: "https://imgs.xkyfzs.top/1gameimgs/TheBridgeCurse20251020.jpg",
+          link: "game/ngq9944.html",
+          category: "恐怖冒险",
+        },
+        {
+          title: "恶魔轮盘/Buckshot Roulette",
+          image: "https://imgs.xkyfzs.top/emlp/1.jpg",
+          link: "game/emlp5657.html",
+          category: "角色扮演",
+        },
+        {
+          title: "星球工匠/The Planet Crafter",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/ThePlanetCrafter20251020.jpg",
+          link: "game/xqgj9532.html",
+          category: "生存建造",
+        },
+        {
+          title: "无感染区/Infection Free Zone",
+          image: "https://imgs.xkyfzs.top/wgrq/1.jpg",
+          link: "game/wgrq1211.html",
+          category: "策略生存",
+        },
+        {
+          title: "鬼打墙8号出口/Dead end Exit 8",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/576d2a9a3d58cb538df7c1abdfa4ff94ad90e57120251020.jpg",
+          link: "game/gdq5858.html",
+          category: "恐怖解谜",
+        },
+        {
+          title: "随身摄像机/Bodycam",
+          image: "https://imgs.xkyfzs.top/xj/xj1.jpg",
+          link: "game/bodycam0642.html",
+          category: "第一人称射击",
+        },
+        {
+          title: "8号站台/8番站台/Platform 8",
+          image: "https://imgs.xkyfzs.top/1gameimgs/8hzt12345620251020.jpg",
+          link: "game/8hzt7827.html",
+          category: "恐怖解谜",
+        },
+        {
+          title: "8号出口/The Exit 8",
+          image: "https://imgs.xkyfzs.top/1gameimgs/8hck12345620251020.jpg",
+          link: "game/8hck0243.html",
+          category: "恐怖解谜",
+        },
+        {
+          title: "自由人：游击战争/Freeman:Guerrilla Warfare",
+          image: "https://imgs.xkyfzs.top/zyr/zyr1.jpg",
+          link: "game/zyr4824.html",
+          category: "军事战争",
+        },
+        {
+          title: "深海迷航：冰点之下/Subnautica Below Zero",
+          image: "https://imgs.xkyfzs.top/shmh2/shmh201.jpg",
+          link: "game/shmh3623.html",
+          category: "生存冒险",
+        },
+        {
+          title: "深海迷航/Subnautica",
+          image: "https://imgs.xkyfzs.top/shmh1/shmh101.jpg",
+          link: "game/shmh6169.html",
+          category: "生存冒险",
+        },
+        {
+          title: "师父/师傅/Sifu",
+          image: "https://imgs.xkyfzs.top/1gameimgs/sifu.jpg",
+          link: "game/sfsfsbbhvrlg.html",
+          category: "动作格斗",
+        },
+        {
+          title: "房产达人2/House Flipper 2",
+          image: "https://imgs.xkyfzs.top/fcdr/fcdr201.png",
+          link: "game/fcdr8590.html",
+          category: "模拟经营",
+        },
+        {
+          title: "房产达人/House Flipper",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/houseflipperoutnow84ca2789268220251020.jpg",
+          link: "game/fcdr5969.html",
+          category: "模拟经营",
+        },
+        {
+          title: "模拟山羊3/Goat Simulator 3",
+          image: "https://imgs.xkyfzs.top/mnsy3/mnsy301.png",
+          link: "game/mnsy6288.html",
+          category: "搞笑模拟",
+        },
+        {
+          title: "装机模拟器2/PC Building Simulator 2",
+          image: "https://imgs.xkyfzs.top/pc2/pc201.png",
+          link: "game/pc7166.html",
+          category: "模拟经营",
+        },
+        {
+          title: "电脑装机模拟器/PC Building Simulator",
+          image: "https://imgs.xkyfzs.top/pc1/pc101.png",
+          link: "game/pc1207.html",
+          category: "模拟经营",
+        },
+        {
+          title: "Maya/C4D",
+          image: "https://imgs.xkyfzs.top/1gameimgs/c4dmaya20251020.jpg",
+          link: "game/md3246.html",
+          category: "设计软件",
+        },
+        {
+          title: "泰拉瑞亚/Terraria",
+          image: "https://imgs.xkyfzs.top/tlry/tlry1.png",
+          link: "game/tlry8924.html",
+          category: "沙盒冒险",
+        },
+        {
+          title: "缺氧/Oxygen Not Included",
+          image: "https://imgs.xkyfzs.top/qy/qy1.png",
+          link: "game/qy5462.html",
+          category: "生存模拟",
+        },
+        {
+          title:
+            "人性末Z日绝地逃亡/HumanitZ Violent Night/HumanitZ Outlast and Outrun",
+          image: "https://imgs.xkyfzs.top/rlz/rlz1.png",
+          link: "game/rlz8938.html",
+          category: "生存冒险",
+        },
+        {
+          title: "DayZ/僵尸末日",
+          image: "https://imgs.xkyfzs.top/dazy/dayz1.png",
+          link: "game/dayz3124.html",
+          category: "生存冒险",
+        },
+        {
+          title: "SCUM/人渣",
+          image: "https://imgs.xkyfzs.top/rz/rz1.png",
+          link: "game/rz0064.html",
+          category: "生存冒险",
+        },
+        {
+          title: "七日杀/7日杀/7 Days to Die",
+          image: "https://imgs.xkyfzs.top/7rs/7rs1.png",
+          link: "game/7rs2776.html",
+          category: "生存冒险",
+        },
+        {
+          title: "罗马2：全面战争帝皇版/Total War: ROME II",
+          image: "https://imgs.xkyfzs.top/1gameimgs/lm2qmzzdhb.jpg",
+          link: "game/lmqmzzdhbtbbvzwb.html",
+          category: "策略战争",
+        },
+        {
+          title: "罗马1：全面战争重制版/Total War: ROME",
+          image: "https://imgs.xkyfzs.top/1gameimgs/lmqmzzczb1.jpg",
+          link: "game/lmqmzzczbtbbv.html",
+          category: "策略战争",
+        },
+        {
+          title:
+            "全面战争传奇：大不列颠王座/Total War Saga: THRONES OF BRITANNIA",
+          image: "https://imgs.xkyfzs.top/1gameimgs/bldwz.jpg",
+          link: "game/qmzzcqdbldwz.html",
+          category: "策略战争",
+        },
+        {
+          title: "阿提拉：全面战争/Total War: ATTILA",
+          image: "https://imgs.xkyfzs.top/1gameimgs/atl1.jpg",
+          link: "game/qmzzatl.html",
+          category: "策略战争",
+        },
+        {
+          title: "战地模拟器/Ravenfield",
+          image:
+            "https://imgs.xkyfzs.top/1gameimgs/01148e39a1086743a5858b1e89d587b8e3zdmnq20251020.jpg",
+          link: "game/zdmnq1034.html",
+          category: "第一人称射击",
+        },
+        {
+          title: "无理之剑/剑与汁：阿尔法/Sword With Sauce",
+          image: "https://imgs.xkyfzs.top/wlzj/wlzj.jpg",
+          link: "game/wlzj2191.html",
+          category: "动作冒险",
+        },
+        {
+          title: "冷静下来，斯大林/Calm Down, Stalin",
+          image: "https://imgs.xkyfzs.top/sdllj/sdllj1.png",
+          link: "game/sdllj3125.html",
+          category: "策略模拟",
+        },
+        {
+          title: "庄园领主/Manor Lords",
+          image: "https://imgs.xkyfzs.top/zylz/zylz1.jpg",
+          link: "game/zylz5230.html",
+          category: "策略模拟",
+        },
+        {
+          title: "星露谷物语/Stardew Valley",
+          image: "https://imgs.xkyfzs.top/xlgwy/xlgwy1.png",
+          link: "game/xlgwy1288.html",
+          category: "模拟经营",
+        },
+        {
+          title: "偷袭珍珠港/Attack on Pearl Harbor",
+          image: "https://imgs.xkyfzs.top/1gameimgs/txzzg20251019.jpg",
+          link: "game/txzzg0129.html",
+          category: "飞行射击",
+        },
+        {
+          title: "红色警戒2+3/Red Alert 2+3",
+          image: "https://imgs.xkyfzs.top/1gameimgs/hsjj2+3hj123456.jpg",
+          link: "game/hsjj3309.html",
+          category: "即时战略",
+        },
+        {
+          title: "博德之门3/Baldurs Gate 3",
+          image: "https://imgs.xkyfzs.top/bdzm3/bdzm301.png",
+          link: "game/bdzm3495.html",
+          category: "角色扮演",
+        },
+        {
+          title: "阿拉亚/ARAYA",
+          image: "https://imgs.xkyfzs.top/aly/araya1.jpg",
+          link: "game/aly6997.html",
+          category: "恐怖冒险",
+        },
+        {
+          title: "拿破仑：全面战争/Napoleon: Total War",
+          image: "https://imgs.xkyfzs.top/nplqmzz/nplqmzz1.png",
+          link: "game/qmzz9523.html",
+          category: "策略战争",
+        },
+        {
+          title: "帝国：全面战争/Total War: EMPIRE",
+          image: "https://imgs.xkyfzs.top/dgqmzz/dgqmzz1.png",
+          link: "game/qmzz3005.html",
+          category: "策略战争",
+        },
+        {
+          title: "全面战争模拟器/Totally Accurate Battle Simulator",
+          image: "https://imgs.xkyfzs.top/qmzzmnq/qmzzmnq1.png",
+          link: "game/qmzzmnq6297.html",
+          category: "策略模拟",
+        },
+        {
+          title: "双点医院/Two Point Hospital",
+          image: "https://imgs.xkyfzs.top/sdyy/sdyy1.png",
+          link: "game/sdyy2435.html",
+          category: "模拟经营",
+        },
+        {
+          title: "中世纪王朝/Medieval Dynasty",
+          image: "https://imgs.xkyfzs.top/zsjwc/zsjwc1.jpg",
+          link: "game/zsjwc6754.html",
+          category: "生存模拟",
+        },
+        {
+          title: "城市：天际线2/Cities: Skylines II",
+          image: "https://imgs.xkyfzs.top/cstjx2/cstjx201.png",
+          link: "game/cstjx3595.html",
+          category: "模拟建造",
+        },
+        {
+          title: "城市：天际线1/Cities: Skylines",
+          image: "https://imgs.xkyfzs.top/cstjx/cstjx1.png",
+          link: "game/cstjx6082.html",
+          category: "模拟建造",
+        },
+        {
+          title: "深海搁浅1/荒岛求生1/Stranded Deep",
+          image: "https://imgs.xkyfzs.top/hdqs/hdqs1.png",
+          link: "game/hdqs7352.html",
+          category: "生存冒险",
+        },
+        {
+          title: "王权陨落/王座陨落/Thronefall",
+          image: "https://imgs.xkyfzs.top/wqyl/wqyl1.png",
+          link: "game/wqyl0173.html",
+          category: "策略塔防",
+        },
+        {
+          title: "缉毒警察/缉私警察/Contraband Police",
+          image: "https://imgs.xkyfzs.top/jsjc/jsjc1.png",
+          link: "game/jsjc1300.html",
+          category: "角色扮演",
+        },
+        {
+          title: "严阵以待/Ready or Not",
+          image: "https://imgs.xkyfzs.top/1gameimgs/yzyd20251019.jpg",
+          link: "game/yzyd8577.html",
+          category: "战术射击",
+        },
+        {
+          title: "消逝的光芒2/Dying Light 2",
+          image: "https://imgs.xkyfzs.top/xsdgm2/xsdgm201.png",
+          link: "game/xsdgm7901.html",
+          category: "冒险恐怖",
+        },
+        {
+          title: "消逝的光芒1/Dying Light",
+          image: "https://imgs.xkyfzs.top/xsdgm1/xsdgm101.png",
+          link: "game/xsdgm1499.html",
+          category: "冒险恐怖",
+        },
+        {
+          title: "森林/迷失森林/The Forest",
+          image: "https://imgs.xkyfzs.top/sl1/sl101.png",
+          link: "game/sl2155.html",
+          category: "生存恐怖",
+        },
+        {
+          title: "荒野大镖客1救赎/不死梦魇/Red Dead Redemption",
+          image: "https://imgs.xkyfzs.top/1gameimgs/hydbk1.jpg",
+          link: "game/hydbk1055.html",
+          category: "动作冒险",
+        },
+        {
+          title: "亿万僵尸/They Are Billions",
+          image: "https://imgs.xkyfzs.top/ywjs/ywjs1.png",
+          link: "game/ywjs1023.html",
+          category: "策略恐怖",
+        },
+        {
+          title: "绿色地狱/丛林地狱/Green Hell",
+          image: "https://imgs.xkyfzs.top/lsdy/lsdy1.png",
+          link: "game/lsdy6460.html",
+          category: "生存冒险",
+        },
+        {
+          title: "求生之路2/Left 4 Dead 2",
+          image: "https://imgs.xkyfzs.top/qszl2/qszl201.jpg",
+          link: "game/qszl8724.html",
+          category: "射击恐怖",
+        },
+        {
+          title: "求生之路1/Left 4 Dead",
+          image: "https://imgs.xkyfzs.top/qszl1/qszl101.jpg",
+          link: "game/qszl2357.html",
+          category: "射击恐怖",
+        },
+        {
+          title: "桥梁建筑师3/Poly Bridge 3",
+          image: "https://imgs.xkyfzs.top/qljzs3/qljzs301.png",
+          link: "game/qljzs35369.html",
+          category: "模拟建造",
+        },
+        {
+          title: "桥梁建筑师2/Poly Bridge 2",
+          image: "https://imgs.xkyfzs.top/qljzs2/qljzs201.png",
+          link: "game/qljzs21212.html",
+          category: "模拟建造",
+        },
+        {
+          title: "桥梁建筑师1/Poly Bridge",
+          image: "https://imgs.xkyfzs.top/qljzs1/qljzs1-1.png",
+          link: "game/qljzs12021.html",
+          category: "模拟建造",
+        },
+        {
+          title: "使命召唤1-15系列/Call of Duty 1-15: Full range",
+          image: "https://tuchuang.xkyfzs.top/img/smzhqxl1.png",
+          link: "game/2b7429f9.html",
+          category: "第一人称射击",
+        },
+        {
+          title: "Adobe软件",
+          image: "https://img.xkyfzs.top/adobe/1.png",
+          link: "game/e0471c97.html",
+          category: "设计软件",
+        },
+        {
+          title: "真人快打11/Mortal Kombat 11",
+          image: "https://imgs.xkyfzs.top/zrkd11/kd114.png",
+          link: "game/kd114113.html",
+          category: "格斗游戏",
+        },
+        {
+          title: "孤岛惊魂原始杀戮/孤岛惊魂野蛮纪元/Far Cry Primal",
+          image: "https://imgs.xkyfzs.top/gdjhyssl/yssl4.png",
+          link: "game/yssl2355.html",
+          category: "角色扮演",
+        },
+        {
+          title: "孤岛惊魂新曙光/Far Cry New Dawn",
+          image: "https://imgs.xkyfzs.top/gdjhxsg/xsg4.png",
+          link: "game/xsg5526.html",
+          category: "角色扮演",
+        },
+        {
+          title: "孤岛惊魂6/Far Cry 6",
+          image: "https://imgs.xkyfzs.top/gdjh6/jh64.png",
+          link: "game/gdjh69443.html",
+          category: "角色扮演",
+        },
+        {
+          title: "油管主播的生活/Youtubers Life",
+          image: "https://imgs.xkyfzs.top/youtube/youtube4.png",
+          link: "game/youtube6616.html",
+          category: "模拟经营",
+        },
+        {
+          title: "跑！僵尸的食物们！/ Run!ZombieFood!",
+          image: "https://imgs.xkyfzs.top/food/foot4.png",
+          link: "game/food8590.html",
+          category: "丧尸恐怖",
+        },
+        {
+          title: "木筏求生/Raft",
+          image: "https://imgs.xkyfzs.top/raft/raft4.png",
+          link: "game/raft7775.html",
+          category: "生存冒险",
+        },
+        {
+          title: "60秒！避难所重制版/60 Seconds! Reatomized",
+          image: "https://imgs.xkyfzs.top/60miao/60miao1.png",
+          link: "game/60miao1771.html",
+          category: "生存策略",
+        },
+        {
+          title: "超市模拟器/Supermarket Simulator",
+          image: "https://imgs.xkyfzs.top/chaoshimoniqi/csmnq1.png",
+          link: "game/csmnq5121.html",
+          category: "模拟经营",
+        },
+        {
+          title: "森林之子/Sons Of The Forest/联机版",
+          image: "https://imgs.xkyfzs.top/1gameimgs/slzz20251019.jpg",
+          link: "game/senlinzhizi4468.html",
+          category: "生存恐怖",
+        },
+        {
+          title: "侠盗猎车手5/Grand Theft Auto V",
+          image: "https://tuchuang.xkyfzs.top/img/gta51.png",
+          link: "game/xiadao9138.html",
+          category: "动作冒险",
+        },
+        {
+          title: "骑马与砍杀2霸主/Mount & Blade II: Bannerlord",
+          image: "https://tuchuang.xkyfzs.top/img/qmyks2a.png",
+          link: "game/49df6c88.html",
+          category: "动作角色扮演",
+        },
+        {
+          title: "骑马与砍杀战团/Mount & Blade:Warband",
+          image: "https://tuchuang.xkyfzs.top/img/qikan1.png",
+          link: "game/qkzt2365.html",
+          category: "动作角色扮演",
+        },
+        {
+          title: "只狼:影逝二度/Sekiro:Shadows Die Twice",
+          image: "https://tuchuang.xkyfzs.top/img/zhilang1.png",
+          link: "game/zhilang5968.html",
+          category: "动作冒险",
+        },
+        {
+          title: "虐杀原形2/Prototype 2",
+          image: "https://tuchuang.xkyfzs.top/img/nsyx20.png",
+          link: "game/nuesha25929.html",
+          category: "动作冒险",
+        },
+        {
+          title: "虐杀原形1/Prototype/汉化重译/超清优化",
+          image: "https://tuchuang.xkyfzs.top/img/nsyx10.png",
+          link: "game/nuesha2185.html",
+          category: "动作冒险",
+        },
+        {
+          title: "赛博朋克2077/Cyberpunk 2077",
+          image: "https://tuchuang.xkyfzs.top/img/sbpk01.png",
+          link: "game/sbpk5674.html",
+          category: "角色扮演",
+        },
+        {
+          title: "无主之地2/无主之地3/Borderlands 2/Borderlands 3",
+          image: "https://imgs.xkyfzs.top/1gameimgs/gq546twVT6p20251019.jpg",
+          link: "game/wzzd2_3.html",
+          category: "第一人称射击",
+        },
+        {
+          title: "钢铁雄心4/Hearts of Iron IV",
+          image: "https://imgs.xkyfzs.top/gtxx4/gtxx4.jpg",
+          link: "game/gtxx6202.html",
+          category: "策略模拟",
+        },
+        {
+          title: "杀手3/Hitman 3",
+          image: "https://imgs.xkyfzs.top/ss3/ss301.png",
+          link: "game/ss6986.html",
+          category: "潜行动作",
+        },
+        {
+          title: "尼尔机械纪元年度版/NieR: Automata",
+          image: "https://imgs.xkyfzs.top/nejxjy/nejxjy1.png",
+          link: "game/nejxjy8038.html",
+          category: "动作角色扮演",
+        },
+        {
+          title: "极限竞速地平线5/Forza Horizon 5- Premium Edition",
+          image: "https://tuchuang.xkyfzs.top/img/dipingxian5.png",
+          link: "game/dipingxian1779.html",
+          category: "赛车竞速",
+        },
+        {
+          title: "极限竞速地平线4/Forza Horizon 4",
+          image: "https://tuchuang.xkyfzs.top/img/dipingxian4.png",
+          link: "game/dipingxian6207.html",
+          category: "赛车竞速",
+        },
+        {
+          title: "荒野大镖客2救赎/Red Dead Redemption 2",
+          image: "https://tuchuang.xkyfzs.top/img/hydbk1.png",
+          link: "game/a50912a.html",
+          category: "动作冒险",
+        },
+        {
+          title: "幽灵线：东京/Ghostwire: Tokyo",
+          image: "https://imgs.xkyfzs.top/ylxdj/ylx4.png",
+          link: "game/ylxdj3583.html",
+          category: "动作冒险",
+        },
+        {
+          title: "刺客信条英灵殿/Assassins Creed Valhalla",
+          image: "https://imgs.xkyfzs.top/ckxtyld/yld4.png",
+          link: "game/yld8943.html",
+          category: "动作角色扮演",
+        },
+        {
+          title: "放逐之城/Banished",
+          image: "https://tuchuang.xkyfzs.top/img/fangzhu1.png",
+          link: "game/fzzc4422.html",
+          category: "模拟建设",
+        },
+        {
+          title: "刺客信条奥德赛/Assassin's Creed Odyssey",
+          image: "https://imgs.xkyfzs.top/ads/ads4.png",
+          link: "game/ckxtads1792.html",
+          category: "角色扮演",
+        },
+        {
+          title: "鬼泣5/Devil May Cry 5",
+          image: "https://imgs.xkyfzs.top/gq5/gq54.png",
+          link: "game/gq54685.html",
+          category: "动作",
+        },
+        {
+          title: "全面战争三国/Total War: THREE KINGDOMS",
+          image: "https://imgs.xkyfzs.top/qmzzsg/sg4.png",
+          link: "game/qmzzsg4982.html",
+          category: "策略",
+        },
+        {
+          title: "港诡实录/Paranormal HK",
+          image: "https://imgs.xkyfzs.top/ggsl/ggsl4.png",
+          link: "game/ggsl7253.html",
+          category: "恐怖",
+        },
+        {
+          title: "地铁离去增强版/Metro Exodus",
+          image: "https://imgs.xkyfzs.top/dtlq/dtlq4.png",
+          link: "game/dtlq7583.html",
+          category: "角色扮演",
+        },
+        {
+          title: "侏罗纪世界：进化2/Jurassic World Evolution 2",
+          image: "https://imgs.xkyfzs.top/zlj2/zlj201.png",
+          link: "game/zhuluoji6280.html",
+          category: "模拟经营",
+        },
+        {
+          title: "侏罗纪世界：进化1/Jurassic World Evolution",
+          image: "https://imgs.xkyfzs.top/zlj1/zlj101.jpg",
+          link: "game/zhuluoji5147.html",
+          category: "模拟经营",
+        },
+        {
+          title: "废品机械师/Scrap Mechanic",
+          image: "https://imgs.xkyfzs.top/fpjxs/fp4.png",
+          link: "game/fpjxs6585.html",
+          category: "模拟建造",
+        },
+        {
+          title: "上古卷轴5天际/The Elder Scrolls V: Skyrim",
+          image: "https://imgs.xkyfzs.top/sgjz5tj/sgjz5tj4.png",
+          link: "game/sgjz5tj8491.html",
+          category: "角色扮演",
+        },
+        {
+          title: "模拟农场22/Farming Simulator 22",
+          image: "https://imgs.xkyfzs.top/mnnc22/nc224.png",
+          link: "game/nc228784.html",
+          category: "模拟经营",
+        },
+        {
+          title: "模拟农场19/Farming Simulator 19",
+          image: "https://imgs.xkyfzs.top/mnnc19/nc194.png",
+          link: "game/nc19137.html",
+          category: "模拟经营",
+        },
+        {
+          title: "小小梦魇2增强版/Little Nightmares II",
+          image: "https://imgs.xkyfzs.top/xxmy2/xxmy4.png",
+          link: "game/xxmy25997.html",
+          category: "恐怖生存",
+        },
+        {
+          title: "人类黎明/Dawn of Man",
+          image: "https://tuchuang.xkyfzs.top/img/renleiliming1.png",
+          link: "game/rllm4730.html",
+          category: "策略",
+        },
+        {
+          title: "艾尔登法环/Elden Ring",
+          image: "https://tuchuang.xkyfzs.top/img/fahuan1.png",
+          link: "game/aedfh1734.html",
+          category: "角色扮演",
+        },
+        {
+          title: "石油大亨/TURMOIL",
+          image: "https://gamemap.xkyfzs.top/turmoil/shiyoudaheng.png",
+          link: "game/sydh3955.html",
+          category: "模拟经营",
+        },
+        {
+          title: "欧洲卡车模拟器2/Euro Truck Simulator 2",
+          image: "https://imgs.xkyfzs.top/ozkcmnq2/kc24.png",
+          link: "game/kc8241.html",
+          category: "模拟驾驶",
+        },
+      ];
+
+      // 分页相关变量
+      let currentPage = 1;
+      const gamesPerPage = 15; // 每页15个游戏，正好3排，我聪明吧！
+      let filteredGames = [...games];
+      let searchTimeout;
+
+      // DOM元素
+      const gameGrid = document.getElementById("gameGrid");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const currentPageSpan = document.getElementById("currentPage");
+      const totalPagesSpan = document.getElementById("totalPages");
+      const searchInput = document.getElementById("searchInput");
+
+      // 显示游戏卡片
+      function displayGames() {
+        gameGrid.innerHTML = "";
+
+        const startIndex = (currentPage - 1) * gamesPerPage;
+        const endIndex = startIndex + gamesPerPage;
+        const gamesToShow = filteredGames.slice(startIndex, endIndex);
+
+        if (gamesToShow.length === 0) {
+          const noResults = document.createElement("div");
+          noResults.className = "no-results";
+          noResults.innerHTML = `
+                        <i class="fas fa-search" style="font-size: 48px; margin-bottom: 20px;"></i>
+                        <p>没有找到匹配的游戏</p>
+                        <p style="font-size: 14px; margin-top: 10px;">尝试使用其他关键词搜索</p>
+                    `;
+          gameGrid.appendChild(noResults);
+        } else {
+          gamesToShow.forEach((game, index) => {
+            const gameCard = document.createElement("div");
+            gameCard.className = "game-card";
+            gameCard.style.animationDelay = `${index * 0.05}s`;
+
+            // 高亮搜索关键词
+            let displayTitle = game.title;
+            if (searchInput.value.trim() !== "") {
+              const regex = new RegExp(`(${searchInput.value})`, "gi");
+              displayTitle = game.title.replace(
+                regex,
+                '<span class="search-highlight">$1</span>'
+              );
+            }
+
+            gameCard.innerHTML = `
+                            <a href="${game.link}" target="_blank" onclick="showAlert()">
+                                <img src="${game.image}" alt="${game.title}" class="game-image">
+                            </a>
+                            <div class="game-info">
+                                <div class="game-title">
+                                    <a href="${game.link}" target="_blank" onclick="showAlert()">${displayTitle}</a>
+                                </div>
+                                <div class="game-card-footer">
+                                    <span class="game-category">${game.category}</span>
+                                    <i class="fas fa-download" style="color: #3498db;"></i>
+                                </div>
+                            </div>
+                        `;
+
+            gameGrid.appendChild(gameCard);
+          });
+        }
+
+        updatePagination();
+      }
+
+      // 更新分页状态
+      function updatePagination() {
+        const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
+
+        currentPageSpan.textContent = currentPage;
+        totalPagesSpan.textContent = totalPages;
+
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+      }
+
+      // 搜索功能
+      function filterGames() {
+        // 添加搜索动画
+        const cards = document.querySelectorAll(".game-card");
+        cards.forEach((card) => {
+          card.classList.add("fade-out");
+        });
+
+        // 延迟执行搜索，让动画完成
+        setTimeout(() => {
+          const searchTerm = searchInput.value.toLowerCase();
+
+          if (searchTerm.trim() === "") {
+            filteredGames = [...games];
+          } else {
+            filteredGames = games.filter((game) =>
+              game.title.toLowerCase().includes(searchTerm)
+            );
+          }
+
+          currentPage = 1;
+          displayGames();
+        }, 300);
+      }
+
+      // 弹窗功能
+        function showPopup() {
+            // 检查是否今天已经显示过弹窗
+            const lastPopupDate = localStorage.getItem('popupLastShown');
+            const today = new Date().toDateString();
+            
+            if (lastPopupDate !== today) {
+                // 今天还没有显示过弹窗，显示它
+                setTimeout(() => {
+                    popup.classList.add('show');
+                    localStorage.setItem('popupLastShown', today);
+                    
+                    // 设置50秒后自动关闭
+                    setTimeout(() => {
+                        closePopup();
+                    }, 50000);
+                }, 2000); // 页面加载后2秒显示
+            }
+        }
+        
+        function closePopup() {
+            popup.classList.remove('show');
+        }
+        
+        // 事件监听
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayGames();
+                // 滚动到顶部
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            const totalPages = Math.ceil(filteredGames.length / gamesPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayGames();
+                // 滚动到顶部
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+        });
+        
+        // 搜索输入事件 - 添加防抖
+        searchInput.addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(filterGames, 500);
+        });
+        
+        // 弹窗关闭事件
+        popupClose.addEventListener('click', closePopup);
+        
+        // 初始显示
+        displayGames();
+        showPopup();
+        
+        // 显示警告函数
+        // function showAlert() {
+        //     alert('即将跳转到游戏详情页面');
+        // }
+    </script>
+   <script>
+      // 导航栏搜索图标点击功能
+        const navSearch = document.getElementById('navSearch');
+
+        navSearch.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // 滚动到页面顶部
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // 短暂延迟后聚焦到搜索输入框并添加动画
+            setTimeout(() => {
+                searchInput.focus();
+                searchInput.classList.add('search-highlight');
+                
+                // 移除动画类
+                setTimeout(() => {
+                    searchInput.classList.remove('search-highlight');
+                }, 1000);
+            }, 500);
+        });
+            </script>
+            <script>
+              // 404页面
+              // 游戏链接点击处理
+        async function handleGameLinkClick(event, url) {
+            event.preventDefault();
+            
+            try {
+                const response = await fetch(url, { 
+                    method: 'HEAD',
+                    // 设置超时，避免长时间等待
+                    signal: AbortSignal.timeout(3000)
+                });
+                
+                if (response.ok) {
+                    // 链接有效，在新标签页打开
+                    window.open(url, '_blank');
+                } else {
+                    // 链接无效，跳转到404
+                    redirectTo404();
+                }
+            } catch (error) {
+                console.error('链接检查失败:', error);
+                redirectTo404();
+            }
+        }
+
+        // 跳转到404页面
+        function redirectTo404() {
+            // 可以在这里添加一些调试信息
+            console.log('链接无效，跳转到404页面');
+            window.location.href = '404.html';
+        }
+
+        // 修改游戏卡片的onclick事件
+        // 在displayGames()函数中：
+        gameCard.innerHTML = `
+            <a href="${game.link}" onclick="handleGameLinkClick(event, '${game.link}')">
+                <img src="${game.image}" alt="${game.title}" class="game-image">
+            </a>
+            ...
+        `;
+    </script>
+  </body>
+  <!-- 访问人数信息 -->
+  <script src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js" defer></script>
+</html>
