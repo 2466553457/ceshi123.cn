@@ -9,7 +9,7 @@
       href="https://tuchuang.xkyfzs.top/img/favicon.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="css/404.css" />
+    <!-- <link rel="stylesheet" href="css/404.css" /> -->
     <style>
       html,
       body {
@@ -243,7 +243,9 @@
         <h1>404 天呐！出错了 ~<br /><br />暗源网站提醒您，网页已丢失！</h1>
         <div class="main-text-a">
           <a href="/index.html"><button class="mytest">返回主页</button></a>
-          <a href="javascript:"><button class="mytest">刷新页面</button></a>
+          <a href="javascript:void(0);" onclick="refreshPage()"
+            ><button class="mytest">刷新页面</button></a
+          >
         </div>
       </div>
       <div class="ground">
@@ -253,5 +255,98 @@
         </div>
       </div>
     </div>
+
+    <script>
+      // 添加刷新功能
+      function refreshPage() {
+        location.reload();
+      }
+
+      // 添加雪景动画（如果原本没有的话）
+      (function () {
+        function ready(fn) {
+          if (document.readyState !== "loading") {
+            fn();
+          } else {
+            document.addEventListener("DOMContentLoaded", fn);
+          }
+        }
+
+        function makeSnow(el) {
+          var ctx = el.getContext("2d");
+          var width = 0;
+          var height = 0;
+          var particles = [];
+
+          var Particle = function () {
+            this.x = this.y = this.dx = this.dy = 0;
+            this.reset();
+          };
+
+          Particle.prototype.reset = function () {
+            this.y = Math.random() * height;
+            this.x = Math.random() * width;
+            this.dx = Math.random() * 1 - 0.5;
+            this.dy = Math.random() * 0.5 + 0.5;
+          };
+
+          function createParticles(count) {
+            if (count !== particles.length) {
+              particles = [];
+              for (var i = 0; i < count; i++) {
+                particles.push(new Particle());
+              }
+            }
+          }
+
+          function onResize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            el.width = width;
+            el.height = height;
+
+            createParticles((width * height) / 10000);
+          }
+
+          function updateParticles() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = "#f6f9fa";
+
+            particles.forEach(function (particle) {
+              particle.y += particle.dy;
+              particle.x += particle.dx;
+
+              if (particle.y > height) {
+                particle.y = 0;
+              }
+
+              if (particle.x > width) {
+                particle.x = 0;
+              } else if (particle.x < 0) {
+                particle.x = width;
+              }
+
+              ctx.beginPath();
+              ctx.arc(particle.x, particle.y, 5, 0, Math.PI * 2, false);
+              ctx.fill();
+            });
+
+            window.requestAnimationFrame(updateParticles);
+          }
+
+          onResize();
+          window.addEventListener("resize", onResize);
+
+          updateParticles();
+        }
+
+        ready(function () {
+          var canvas = document.getElementById("snow");
+          if (canvas) {
+            makeSnow(canvas);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
