@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>新暗源超级选项系统</title>
+    <title>404页面 - 页面未找到</title>
     <link
-      rel="Shortcut Icon"
-      href="https://tuchuang.xkyfzs.top/img/favicon.png"
-      type="image/x-icon"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <style>
       * {
@@ -18,2099 +17,825 @@
       }
 
       body {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        color: #e6e6e6;
-        line-height: 1.6;
-        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         min-height: 100vh;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 20px;
+        transition: background 1.5s ease;
       }
 
       .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        background: rgba(30, 30, 46, 0.8);
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-      }
-
-      /* 选项卡容器 */
-      .tab {
-        display: flex;
-        background: rgba(22, 22, 40, 0.9);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        position: relative;
-      }
-
-      /* 选项卡按钮 */
-      .tab button {
-        background: transparent;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 16px 24px;
-        flex: 1;
-        font-size: 16px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        color: #a0a0c0;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .tab button::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #3d57ff, #6a8cff);
-        transition: all 0.3s ease;
-        transform: translateX(-50%);
-      }
-
-      .tab button:hover {
-        color: #ffffff;
-        background: rgba(61, 87, 255, 0.1);
-      }
-
-      .tab button:hover::after {
-        width: 70%;
-      }
-
-      /* 选项卡按钮激活状态 */
-      .tab button.active {
-        color: #ffffff;
-        background: rgba(61, 87, 255, 0.15);
-      }
-
-      .tab button.active::after {
         width: 100%;
-      }
-
-      /* 内容面板 */
-      .tabcontent {
-        display: none;
-        padding: 30px;
-        animation: fadeIn 0.5s ease;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* 激活状态显示内容面板 */
-      .tabcontent.active {
-        display: block;
-      }
-
-      h1 {
-        color: #ffffff;
-        margin-bottom: 20px;
-        font-size: 28px;
+        max-width: 900px;
+        text-align: center;
         position: relative;
-        padding-bottom: 10px;
       }
 
-      h1::after {
-        content: "";
+      .season-display {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .season-bg {
         position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(90deg, #3d57ff, #6a8cff);
-        border-radius: 3px;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: opacity 1.5s ease;
+        opacity: 0;
       }
 
-      h4 {
-        color: #d0d0e0;
-        margin: 15px 0;
-        font-weight: 500;
+      .season-bg.active {
+        opacity: 1;
+      }
+
+      .spring {
+        background: linear-gradient(
+            135deg,
+            rgba(255, 105, 180, 0.7) 0%,
+            rgba(173, 255, 47, 0.7) 100%
+          ),
+          url("https://images.unsplash.com/photo-1614294149013-5e94593e36a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80");
+      }
+
+      .summer {
+        background: linear-gradient(
+            135deg,
+            rgba(65, 105, 225, 0.7) 0%,
+            rgba(0, 255, 255, 0.7) 100%
+          ),
+          url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80");
+      }
+
+      .autumn {
+        background: linear-gradient(
+            135deg,
+            rgba(210, 105, 30, 0.7) 0%,
+            rgba(255, 215, 0, 0.7) 100%
+          ),
+          url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80");
+      }
+
+      .winter {
+        background: linear-gradient(
+            135deg,
+            rgba(176, 224, 230, 0.7) 0%,
+            rgba(135, 206, 235, 0.7) 100%
+          ),
+          url("https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80");
+      }
+
+      .season-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 80px;
+        color: white;
+        text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        z-index: 2;
+      }
+
+      .error-code {
+        font-size: 120px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        line-height: 1;
+        background-clip: text;
+        -webkit-background-clip: text;
+        transition: color 1.5s ease;
+      }
+
+      .spring-code {
+        color: #ff69b4;
+      }
+
+      .summer-code {
+        color: #4169e1;
+      }
+
+      .autumn-code {
+        color: #d2691e;
+      }
+
+      .winter-code {
+        color: #4682b4;
+      }
+
+      .error-message {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        transition: color 1.5s ease;
+      }
+
+      .spring-text {
+        color: #ff1493;
+      }
+
+      .summer-text {
+        color: #1e90ff;
+      }
+
+      .autumn-text {
+        color: #cd853f;
+      }
+
+      .winter-text {
+        color: #5f9ea0;
+      }
+
+      .current-solar-term {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 25px;
+        padding: 8px 20px;
+        border-radius: 30px;
+        display: inline-block;
+      }
+
+      .spring-term {
+        background-color: rgba(255, 182, 193, 0.3);
+        color: #8b0000;
+        border: 2px solid #ff69b4;
+      }
+
+      .summer-term {
+        background-color: rgba(135, 206, 235, 0.3);
+        color: #000080;
+        border: 2px solid #4169e1;
+      }
+
+      .autumn-term {
+        background-color: rgba(244, 164, 96, 0.3);
+        color: #8b4513;
+        border: 2px solid #d2691e;
+      }
+
+      .winter-term {
+        background-color: rgba(176, 224, 230, 0.3);
+        color: #2f4f4f;
+        border: 2px solid #4682b4;
+      }
+
+      .description {
+        font-size: 18px;
+        color: #555;
+        max-width: 600px;
+        margin: 0 auto 40px;
         line-height: 1.6;
       }
 
-      hr {
-        border: none;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        margin: 25px 0;
-      }
-
-      /* 公告内容样式 */
-      .announcement-item {
-        padding: 20px;
-        margin-bottom: 15px;
-        background: rgba(40, 40, 60, 0.5);
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        border-left: 4px solid transparent;
-      }
-
-      .announcement-item:hover {
-        background: rgba(50, 50, 70, 0.7);
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        border-left: 4px solid #3d57ff;
-      }
-
-      .announcement-date {
-        color: #8a8ac4;
-        font-weight: 600;
-        margin-right: 15px;
-      }
-
-      .update-type {
+      .season-status {
         display: inline-block;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 14px;
+        padding: 12px 24px;
+        border-radius: 30px;
+        font-size: 18px;
         font-weight: 600;
-        margin-right: 10px;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 1.5s ease;
       }
 
-      .update-record {
-        background: rgba(0, 35, 174, 0.3);
-        color: #6a8cff;
+      .spring-status {
+        background-color: rgba(255, 182, 193, 0.2);
+        color: #8b0000;
+        border: 2px solid #ff69b4;
       }
 
-      .content-update {
-        background: rgba(0, 132, 59, 0.3);
-        color: #6cffa8;
+      .summer-status {
+        background-color: rgba(135, 206, 235, 0.2);
+        color: #000080;
+        border: 2px solid #4169e1;
       }
 
-      /* 默认情况下的链接样式 */
-      a {
-        color: #a0a0ff;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        font-weight: 500;
+      .autumn-status {
+        background-color: rgba(244, 164, 96, 0.2);
+        color: #8b4513;
+        border: 2px solid #d2691e;
       }
 
-      /* 鼠标悬停时的链接样式 */
-      a:hover {
-        color: #6a8cff;
-        text-decoration: underline;
+      .winter-status {
+        background-color: rgba(176, 224, 230, 0.2);
+        color: #2f4f4f;
+        border: 2px solid #4682b4;
       }
 
-      .date {
-        color: #8a8ac4;
-        transition: color 0.3s ease;
+      .season-details {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 15px;
+        padding: 25px;
+        margin: 30px auto;
+        max-width: 700px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .season-detail-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px dashed #ddd;
+      }
+
+      .season-detail-item:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .detail-label {
+        font-weight: 600;
+        color: #666;
+        text-align: left;
+      }
+
+      .detail-value {
+        font-weight: 600;
+        text-align: right;
+      }
+
+      .spring-detail {
+        color: #ff1493;
+      }
+
+      .summer-detail {
+        color: #1e90ff;
+      }
+
+      .autumn-detail {
+        color: #cd853f;
+      }
+
+      .winter-detail {
+        color: #5f9ea0;
+      }
+
+      .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .action-btn {
+        padding: 14px 28px;
+        background-color: #4a6fa5;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
         cursor: pointer;
-        font-weight: 600;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 5px 15px rgba(74, 111, 165, 0.3);
       }
 
-      .date:hover {
-        color: #ff6b6b;
+      .action-btn:hover {
+        background-color: #385d8a;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(74, 111, 165, 0.4);
       }
 
-      /* 免责声明样式 */
-      .disclaimer-content {
-        padding: 20px;
-        background: rgba(40, 40, 60, 0.5);
-        border-radius: 10px;
-        line-height: 1.7;
+      .action-btn.home {
+        background-color: #6b8e23;
       }
 
-      /* 响应式设计 */
+      .action-btn.home:hover {
+        background-color: #556b2f;
+      }
+
+      .season-indicator {
+        font-size: 14px;
+        color: #666;
+        margin-top: 20px;
+        font-style: italic;
+      }
+
+      .season-notice {
+        font-size: 16px;
+        color: #888;
+        margin-top: 10px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+      }
+
+      .twenty-four-terms {
+        font-size: 14px;
+        color: #777;
+        margin-top: 15px;
+        line-height: 1.8;
+      }
+
+      .term-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .term-item {
+        padding: 4px 10px;
+        border-radius: 15px;
+        font-size: 12px;
+        background-color: #f0f0f0;
+      }
+
+      .spring-term-item {
+        border-left: 3px solid #ff69b4;
+      }
+
+      .summer-term-item {
+        border-left: 3px solid #4169e1;
+      }
+
+      .autumn-term-item {
+        border-left: 3px solid #d2691e;
+      }
+
+      .winter-term-item {
+        border-left: 3px solid #4682b4;
+      }
+
       @media (max-width: 768px) {
-        .tab {
+        .season-display {
+          width: 250px;
+          height: 250px;
+        }
+
+        .error-code {
+          font-size: 100px;
+        }
+
+        .error-message {
+          font-size: 24px;
+        }
+
+        .current-solar-term {
+          font-size: 20px;
+        }
+
+        .action-buttons {
           flex-direction: column;
+          align-items: center;
         }
 
-        .tab button {
-          text-align: left;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        .action-btn {
+          width: 250px;
+          justify-content: center;
         }
 
-        .tab button:last-child {
-          border-bottom: none;
-        }
-
-        .tabcontent {
-          padding: 20px;
-        }
-
-        .announcement-item {
+        .season-details {
           padding: 15px;
         }
-      }
 
-      /* 滚动条样式 */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
+        .season-detail-item {
+          flex-direction: column;
+          text-align: center;
+          gap: 5px;
+        }
 
-      ::-webkit-scrollbar-track {
-        background: rgba(30, 30, 46, 0.5);
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: rgba(61, 87, 255, 0.5);
-        border-radius: 4px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: rgba(61, 87, 255, 0.7);
+        .detail-label,
+        .detail-value {
+          text-align: center;
+        }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <!-- 选项卡 -->
-      <div class="tab">
-        <button class="tablinks active" onclick="openTab(event, 'Tab1')">
-          网站更新记录
+      <div class="season-display">
+        <div class="season-bg spring"></div>
+        <div class="season-bg summer"></div>
+        <div class="season-bg autumn"></div>
+        <div class="season-bg winter"></div>
+        <div class="season-icon"><i class="fas fa-seedling"></i></div>
+      </div>
+
+      <h1 class="error-code winter-code">404</h1>
+      <h2 class="error-message winter-text" id="season-message">
+        页面被冬天的雪花覆盖了
+      </h2>
+
+      <div class="current-solar-term winter-term" id="current-solar-term">
+        当前节气：大雪
+      </div>
+
+      <div class="season-status winter-status" id="season-status">
+        当前季节：冬季（立冬至立春）
+      </div>
+
+      <p class="description" id="season-description">
+        您寻找的页面可能已经迁移或不再存在。根据二十四节气，当前正是冬季，静谧祥和的季节。
+      </p>
+
+      <div class="season-details">
+        <div class="season-detail-item">
+          <span class="detail-label">当前季节：</span>
+          <span class="detail-value winter-detail" id="current-season-display"
+            >冬季</span
+          >
+        </div>
+        <div class="season-detail-item">
+          <span class="detail-label">当前节气：</span>
+          <span class="detail-value winter-detail" id="current-term-display"
+            >大雪</span
+          >
+        </div>
+        <div class="season-detail-item">
+          <span class="detail-label">季节范围：</span>
+          <span class="detail-value winter-detail" id="season-range"
+            >立冬至立春</span
+          >
+        </div>
+        <div class="season-detail-item">
+          <span class="detail-label">下个节气：</span>
+          <span class="detail-value winter-detail" id="next-term">冬至</span>
+        </div>
+        <div class="season-detail-item">
+          <span class="detail-label">距离下个节气：</span>
+          <span class="detail-value winter-detail" id="days-to-next-term"
+            >约11天</span
+          >
+        </div>
+      </div>
+
+      <div class="twenty-four-terms">
+        <div>春季节气：</div>
+        <div class="term-list" id="spring-terms">
+          <!-- 动态生成春季节气 -->
+        </div>
+        <div>夏季节气：</div>
+        <div class="term-list" id="summer-terms">
+          <!-- 动态生成夏季节气 -->
+        </div>
+        <div>秋季节气：</div>
+        <div class="term-list" id="autumn-terms">
+          <!-- 动态生成秋季节气 -->
+        </div>
+        <div>冬季节气：</div>
+        <div class="term-list" id="winter-terms">
+          <!-- 动态生成冬季节气 -->
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="action-btn home" onclick="window.location.href='/'">
+          <i class="fas fa-home"></i> 返回首页
         </button>
-        <button class="tablinks" onclick="openTab(event, 'Tab2')">
-          网站功能更新
+        <button class="action-btn" onclick="window.history.back()">
+          <i class="fas fa-arrow-left"></i> 返回上一页
         </button>
-        <button class="tablinks" onclick="openTab(event, 'Tab3')">
-          暗源免责声明
+        <button class="action-btn" onclick="window.location.href='/contact'">
+          <i class="fas fa-envelope"></i> 联系支持
         </button>
-        <!-- <button class="tablinks" onclick="openTab(event, 'Tab4')">
-          暗源使用视频
-        </button> -->
-        <!-- <button class="tablinks" onclick="openTab(event, 'Tab5')">
-          暂无开发
-        </button> -->
       </div>
 
-      <!-- 内容面板 -->
-      <div id="Tab1" class="tabcontent active">
-        <h1>网站更新记录</h1>
-        <hr />
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-20</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xqgj9532.html" target="_blank">星球工匠 V1.607</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-17</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/qjq8996.html" target="_blank">取景器 V1.1.4</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/pc7166.html" target="_blank">装机模拟器2 V1.14.02</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-10</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/jyzc1mbbhvrlg20251110.html" target="_blank"
-              >记忆之城 v1.0.126</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-10</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/MineralDefense20251110.html" target="_blank"
-              >矿物防御 V0.215</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-10</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/qczzqczzmnqcbbhvrlg1.html" target="_blank"
-              >汽车制造模拟器 V1.0.7i</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-10</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/slkj3kbbhbrlg20251110zz.html" target="_blank"
-              >杀戮空间3 Build.19273238</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-10</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/hxshmbbhvrlggfjtzw.html" target="_blank"
-              >欢欣森活 v1.0.81</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-10</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ysszjdzjdb1sbbhvrl.html" target="_blank"
-              >要塞十字军东征2 v1.0.22794</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-10</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ysszjdzjdb1sbbhvrl.html" target="_blank"
-              >要塞十字军东征：决定版 v2.03</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-10</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/krys2fkys2tbbhvrlg.html" target="_blank"
-              >狂热运输2 v35924</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-10</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/krys1fkys1tbbhvrlg.html" target="_blank"
-              >狂热运输1 v19002</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-09</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ycsrgahzri20251109bbhv.html" target="_blank"
-              >勇闯死人谷：暗黑之日 v0.8.1.15117</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-09</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/tmzj1kbzj1hbbhvrlg.html" target="_blank"
-              >甜蜜之家 v1.0.1</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-09</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/kjdddbbhvrlggfjtzw.html" target="_blank"
-              >恐惧地带 v1.3.9.1</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-09</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/szmwwbbhvrlggfjtzw1109.html" target="_blank"
-              >谁在门外? v1.0.8</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-09</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/mnkg1mbbhvrlggfjtzw.html" target="_blank"
-              >迷你空管 v0.12.7</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-09</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/kjcpbbhvrlggfjtzw1.html" target="_blank"
-              >空间池 v20250613</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-09</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/wdlyvrlggfjtzwzdxxgq.html" target="_blank"
-              >维多利亚3 V1.9.7</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-09</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/yxgcfbbhvrlggfjtzw.html" target="_blank"
-              >异星工厂 V2.0.72</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-09</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/HUNTERHUNTERNENIMPACT.html" target="_blank"
-              >全职猎人：NEN×IMPACT V1.1.1</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-09</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/wgrq1211.html" target="_blank"
-              >无感染区 Build 20537972</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-08</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/nsqslnbbhbrlm2025.html" target="_blank"
-              >莱恩岛生存指南 V1.0.2</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-08</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/dqtrlggfjtzwzcjpsb.html" target="_blank"
-              >地壳 v0.99.02</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-08</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ledscznlbbhvrlg20251108.html" target="_blank"
-              >莱恩岛生存指南 V1.0.12a</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-08</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/Phasmophobia20251108.html" target="_blank"
-              >恐鬼症 V0.13.0.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-08</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/OldWorld20251108.html" target="_blank"
-              >旧世界 v1.0.80396</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-08</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/aedfhhyjlebbhvrlgdlc.html" target="_blank"
-              >艾尔登法环 黑夜君临 v1.01.6</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-08</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/wrshnrlggfjtzw1.html" target="_blank"
-              >无人生还 v0.0.9.2</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-06</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zdmnq1034.html" target="_blank"
-              >战地模拟器 EA32中文汉化版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-06</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/jwkrlmgfjtzwzcjpsb.html" target="_blank"
-              >九王 V0.8.5.15</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-06</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/TheIncredibleHulk.html" target="_blank"
-              >绿巨人2008 英文版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-06</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/sstxmyrnxczzcwlljbdrms.html" target="_blank"
-              >丧尸突袭：没有人能幸存 Build.01052025联机版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-06</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ThePrecinct1.html" target="_blank">警区 v1.8.18866</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-06</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xxmyqhblbbhvrlg.html" target="_blank"
-              >小小梦魇强化版 v1.2.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-04</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/elcsqlzcffcotw120.html" target="_blank"
-              >饿狼传说：群狼之城 v1.2.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-04</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zgwcsrlgzdxxgqgrd.html" target="_blank"
-              >战国王朝 v1.1.0.5</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-04</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/wzydxzydabbhvrlgleft.html" target="_blank"
-              >往左一点/向左一点 v3.1.4</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-04</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/TCGCardShopSimulator.html" target="_blank"
-              >TCG卡牌店模拟器 v0.62.3</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-04</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/kpdmnqdrljbcbbhbr.html" target="_blank"
-              >卡牌店模拟器 V0.1.04</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/wybbbfbbhvrlg20251102.html" target="_blank"
-              >挖油吧！爸爸 v0.8.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/lbkzjfhzfbbhzcwlljb.html" target="_blank"
-              >联邦控制局：防火组 v20250618联机版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/shr3pzcwlljvljbrlg.html" target="_blank"
-              >收获日3 v1.0.0.0.834978联机版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/czrzmpbbhvrlg100.html" target="_blank"
-              >超自然折磨 v1.0.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/iyzygfzwbbhv.html" target="_blank">云族裔 V0.4.1</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/yh2qhqsgcebbhvrlg.html" target="_blank"
-              >易红2 v1.5.3</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/gdjh4fbbhvrlg.html" target="_blank"
-              >孤岛惊魂4 v20250404</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/Teardown20251102.html" target="_blank">拆迁 v1.7.0</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/fryarlggfybywzc20251102.html" target="_blank"
-              >疯人院 v1.2.2985</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zc4000zqzckzdqywrlg.html" target="_blank"
-              >战锤40K：战斗区域 v1.5.264</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/chinafengshademo.html" target="_blank">烽沙 demo版</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zzychjwbbhvrlg100.html" target="_blank"
-              >战争遗产合集 v1.0.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-11-02</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/qh13qqdjtbbhbrlg.html" target="_blank"
-              >拳皇13：全球对决 Build.18579297</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-31</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xxnwzsb20251031.html" target="_blank"
-              >小小暖屋 Build.19798679</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-31</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/qmzzzsj220251031.html" target="_blank"
-              >全面战争：中世纪2最终版 v1.52</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-31</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/tltkfebbhvlxb20251030.html" target="_blank"
-              >逃离塔科夫 V0.16.1.3.35392</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-31</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zhjylrlgzdxxgq20251030.html" target="_blank"
-              >最后纪元 v1.2.5.2</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/FirefightingSimulatorIgnite.html" target="_blank"
-              >消防模拟：火苗燃动 v1.0010</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/jcmnq1xjprlg.html" target="_blank"
-              >警察模拟器：巡警 v17.1.1</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/jcmnq1xjprlg.html" target="_blank"
-              >警察模拟器：巡警 v17.1.1</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xfmnjqmnjjmnfbbh.html" target="_blank"
-              >消防模拟/警情模拟/急救模拟 v20250528</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/mrdd2ebbh.html" target="_blank"
-              >末日地带2 Build.18640424</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/srcx2syqjsbbhvljb.html" target="_blank"
-              >双影奇境 v20250527联机版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/shwj8czrbbhvrlggfjt.html" target="_blank"
-              >生化危机8：村庄 v20230626</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/shwj7hjbrbbhvrlg.html" target="_blank"
-              >生化危机7：黄金版 v20230508</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/shwj6rbbhvrlg.html" target="_blank"
-              >生化危机6：完整版 v1.1.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/shwj5hjbrgbbhvrlg.html" target="_blank"
-              >生化危机5：黄金版 v1.2.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/shwj4czbrbbhbrlggfj.html" target="_blank"
-              >生化危机4：重制版 Build.11025382</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-29</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/shwj3czbrrlggfjtzwg.html" target="_blank"
-              >生化危机3：重制版 v20230427</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-28</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/shwj2czbrbbhvgfjtzw.html" target="_blank"
-              >生化危机2：重制版 v20230814</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-28</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/thekingoffighter15.html" target="_blank"
-              >拳皇15 v2.42</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-28</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/qh2002zjzztrlggfrwyw.html" target="_blank"
-              >拳皇2002：终极之战 v2.0官方日文英文</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-28</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ssvhybbbhqbbljb.html" target="_blank"
-              >死神VS火影 全版本/联机版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-28</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/mwzzx2pc.html" target="_blank"
-              >漫威蜘蛛侠2 v1.526.0.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-28</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/shwjhdczb.html" target="_blank"
-              >生化危机HD：重制版 V20250317</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-28</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/shwjqslr2.html" target="_blank"
-              >生化危机：启示录2 Build.13298487</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-23</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/CallofDutyModernWarfare19.html" target="_blank"
-              >使命召唤19：现代战争2 v9.2.12721522</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-23</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/CallofDutyVanguard18.html" target="_blank"
-              >使命召唤18：先锋 完整版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-23</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/CallofDutyBlackOpsColdWar17.html" target="_blank"
-              >使命召唤17：黑色行动冷战 V1.34.1.15931218</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-23</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/CallofDutyModernWarfare16.html" target="_blank"
-              >使命召唤16：现代战争 v1.38.3.9489393</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-23</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/gryzyswaghgw.html" target="_blank"
-              >帝国时代4：周年纪念版 V13.0.4343.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-23</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/dgsdjdbabbhv2.html" target="_blank"
-              >帝国时代2：决定版 V143421</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-23</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/gryzyswaghgw.html" target="_blank"
-              >工人与资源：苏维埃共和国 V1.0.0.20</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-23</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/dbqbglzqi.html" target="_blank">心灵杀手2 V1.2.8</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-23</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/dbqbglzqi.html" target="_blank"
-              >夺宝奇兵：古老之圈 V20250423</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-22</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zhuluoji3.html" target="_blank"
-              >侏罗纪世界：进化3 待上传</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-21</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/jjl2czb20251021.html" target="_blank"
-              >寂静岭2重置版 V1.1.258.834</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-21</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/yxqs123456.html" target="_blank"
-              >翼星求生 V2.2.62.139704</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-21</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/tgzj220251021.html" target="_blank"
-              >天国：拯救2 v1.2.4</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-19</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zsgwsqy123456.html" target="_blank"
-              >真・三国无双 起源 v1.0.0.7</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/dnwxsddnxlsd.html" target="_blank"
-              >电脑修理商店/电脑维修商店 v1.08</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ws3klcsdb.html" target="_blank"
-              >巫师3：狂猎次世代版 v20240521/GOG版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/jshmgcpbbhb.html" target="_blank"
-              >僵尸毁灭工程 Build.18007835</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/mnnc2025.html" target="_blank"
-              >模拟农场25 v1.7.0.1联机版/v1.7.0.2单机版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xsdgmchljb.html" target="_blank"
-              >消逝的光芒：仇恨 v3688035</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xqdzjdxczs1.html" target="_blank"
-              >埃及建设者 v1.036</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xqdzjdxczs1.html" target="_blank"
-              >最后的生还者2重制版 V1.3.10430.0406</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xqdzjdxczs1.html" target="_blank"
-              >星球大战 绝地：幸存者 中文版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/flgdzzjbbszwb2.html" target="_blank"
-              >腐烂国度2:主宰 巨霸版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/yjrgzgypy2.html" target="_blank">遗迹2 V451008</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zzhx15ffxv.html" target="_blank"
-              >最终幻想15 官方简体中文版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/cadbbhvljbkkwp.html" target="_blank"
-              >尘埃5 V1.2770.47.0联机版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-16</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/flkstdyyt.html" target="_blank"
-              >弗兰克·斯通的阴影 20240916</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-15</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/hspkbqsdfbbhb2.html" target="_blank"
-              >冰汽时代2 v1.0.5</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-15</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/hspkbqsdfbbhb1.html" target="_blank"
-              >冰汽时代1 Build.15262773</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-15</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/sgz8czbsgzrbbhv.html" target="_blank"
-              >三国志8重置版 V1.0.4</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-15</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xdlcssadlsjdbczbg.html" target="_blank"
-              >侠盗猎车手：圣安地列斯 决定版/重制版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-15</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xdlcszedsgvbbhczb.html" target="_blank"
-              >侠盗猎车手：罪恶都市 重制版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-15</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/fzscssfzscfsarlg.html" target="_blank"
-              >方舟: 生存飞升 官方中文版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-15</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/fzscssfzscfsarlg.html" target="_blank"
-              >方舟: 生存飞升 官方中文版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-15</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ldrslzcl123456.html" target="_blank"
-              >领地人生：林中村落 v1.1.6811</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-15</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/kmgjtkmg3.html" target="_blank"
-              >看门狗：军团/看门狗3 v1.5.6</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-15</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zydbc123456.html" target="_blank"
-              >最远的边陲 V0.9.6d</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-15</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/Godfall.html" target="_blank">众神陨落 v5.1.23</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-13</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/qmzzzc2.html" target="_blank"
-              >全面战争：战锤2 v1.12.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-13</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ckxthjyb.html" target="_blank"
-              >刺客信条：幻景 v1.0.6</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-13</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zsgbbhvzwb.html" target="_blank">战神4 V1.0.13</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-13</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zszszshhgbbhv.html" target="_blank">战神5 V1.7</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-13</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/krxzsht2.html" target="_blank"
-              >今晚没开2/今晚不行2 V1.10</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-13</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/jwmkjwbx1.html" target="_blank"
-              >今晚没开/今晚不行 V1.5.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-13</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/krxzsht.html" target="_blank"
-              >抗日：血战上海滩 简体中文版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-13</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/jxjsjxjsscydfbbhv.html" target="_blank"
-              >极限竞速：赛车运动 V1.736.7361.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/qjmnnq1.html" target="_blank"
-              >枪械模拟器/枪匠模拟器 v1.1.10</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/plsmfbibbhv.html" target="_blank"
-              >叛乱：沙漠风暴 v20241212</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/swmcq123456.html" target="_blank"
-              >沙威玛传奇 BUILD 16194740</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zzzr2.html" target="_blank"
-              >战争之人：突击小队2 整合版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zzzr1.html" target="_blank">战争之人 整合版</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zzhlzzzh.html" target="_blank"
-              >战争号令/战争召唤 V1.228.0-P2P/1.039整合全DLC</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zzzhdyzmdx.html" target="_blank"
-              >战争召唤—地狱之门：东线 V1.048.0</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/tlzx123456.html" target="_blank"
-              >底特律：化身为人 V20230928</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/tlzx123456.html" target="_blank"
-              >铁路在线 BUILD 16788644</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/mwfczlmzjb.html" target="_blank"
-              >漫威复仇者联盟 V2.8.2.0终极版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/wbcsmnq2024.html" target="_blank"
-              >网吧&超市模拟器2024 V1.0.17</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/wbmnq2.html" target="_blank">网吧模拟器2 V1.2.5</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/wbmnq1.html" target="_blank">网吧模拟器1 v1.0</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zwdzjshj.html" target="_blank"
-              >植物大战僵尸多版本 整合版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xtmnq2.html" target="_blank">小偷模拟器2 v1.27c</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xtmnq1.html" target="_blank">小偷模拟器1 v1.8</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/xlssczb.html" target="_blank"
-              >心灵杀手：重置版 v34885</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/djjs1.html" target="_blank">顶尖决胜 V1.0.5329</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ssqmzzmnq2.html" target="_blank"
-              >史诗战争模拟器2 V1.2中文版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-12</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ssqmzzmnq.html" target="_blank"
-              >史诗战争模拟器 v1.9中文版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-01-06</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/gdjh5yb.html" target="_blank"
-              >孤岛惊魂5+1至4部 v1.011黄金版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-01-06</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/tcstea.html" target="_blank">逃出生天 官方中文版</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-01-06</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/srcxea.html" target="_blank">双人成行 v1.0.0.4</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-01-06</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/jssjdzjhys.html" target="_blank"
-              >僵尸世界大战：劫后余生 官方中文版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-08</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/pctycoon2.html" target="_blank"
-              >PC大亨2/电脑大亨2 V1.2.10</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-10-08</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/csyxgzs123.html" target="_blank"
-              >城市游戏工作室 V1.24.1</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2025-1-24</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/lrhydzh.html" target="_blank"
-              >猎人：荒野的召唤 V2903389</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2024-12-25</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/qxzqenblzx.html" target="_blank"
-              >潜行者2：切尔诺贝利之心 V1.1.3</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2024-12-25</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/sunkenland.html" target="_blank">沉没之地 V0.6.01</a>
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2024-12-24</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/hgwczy.html" target="_blank"
-              >霍格沃兹之遗 Build.15069070</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2024-12-14</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/zdfw1234.html" target="_blank"
-              >正当防卫1/2/3/4 简体中文版</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2024-12-09</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/sfsfsbbhvrlg.html" target="_blank"
-              >师父/师傅 V1.27.6.703</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2024-11-26</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/cstjxschhbc.html" target="_blank"
-              >城市:天际线:山村 v1.18.1-f3</a
-            >
-          </p>
-        </div>
-
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2024-11-22</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">内容更新</span>
-            <a href="game/ygzbdshybbv-2.html" target="_blank"
-              >油管主播的生活2 v1.3.1.011</a
-            >
-          </p>
-        </div>
-        <hr />
-        <h1>旧公告内容</h1>
-        <hr />
-        <div class="announcement-item">
-          <p>
-            <span class="announcement-date">2024-03-24</span>
-            <span class="update-type update-record">更新记录</span>
-            <span class="update-type content-update">游戏更新</span>
-            <a href="gonggao.html" target="_blank">以前的旧版公告</a>
-          </p>
-        </div>
-      </div>
-
-      <div id="Tab2" class="tabcontent">
-        <h1>功能介绍</h1>
-        <hr />
-
-        <div class="announcement-item">
-          <p>更新日期：<span class="date">2025/08/30</span></p>
-          <h4>1.本网站功能已经得到全面更新：</h4>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;(1).在搜索框搜索内容，不仅仅会显示文字，还会显示其图片。
-          </p>
-          <p>
-            &nbsp;&nbsp;&nbsp;&nbsp;(2).在搜索框搜索内容，只会显示相应的内容，其他无关内容无法可见。
-          </p>
-          <h4>
-            2.将搜索框美化，网站多于无关的内容进行了删除，使网站更加简洁明了。
-          </h4>
-          <h4>
-            3.正在逐一修复点击按钮不能跳转的BUG(目前只能通过点击文字来实现跳转)。
-          </h4>
-        </div>
-
-        <div class="announcement-item">
-          <p>更新日期：<span class="date">2024/10/01</span></p>
-          <h4>
-            1.网站增加响应式布局，根据不同设备的大小来切换一行游戏的个数，以免对界面产生错乱，并且为此加入动画过渡效果！
-          </h4>
-        </div>
-
-        <div class="announcement-item">
-          <p>更新日期：<span class="date">2024/5/15</span></p>
-          <h4>
-            1.随着游戏的增多，网站的主页面浏览时时间过长，所以我为主页编写了"返回顶部"的按钮！
-          </h4>
-          <h4>2.按钮位置在网页的右下角！</h4>
-        </div>
-
-        <div class="announcement-item">
-          <p>更新日期：<span class="date">2024/4/20</span></p>
-          <h4>
-            1.随着游戏的增多，本网站后续的内容不再以微信公众号回复得到密码，而是通过后台AI运算给出大家验证码，输入即可！
-          </h4>
-          <h4>
-            2.值得注意的是填写验证码时注意大小写，填写完成后点击提交按钮或敲击回车键即可！
-          </h4>
-        </div>
-
-        <div class="announcement-item">
-          <p>更新日期：<span class="date">早期</span></p>
-          <h4><a href="gonggao.html" target="_blank">早期公告</a></h4>
-        </div>
-      </div>
-
-      <div id="Tab3" class="tabcontent">
-        <h1 style="text-align: center">免责声明</h1>
-        <hr />
-        <div class="disclaimer-content">
-          <h4>
-            1.使用网站内容一定要严格遵守博客规章制度，本网站所有内容全部免费，请不要将内容拿去做违法的事情，否则，一切后果请用户自负，本站概不承担负责，等待您的只有法律的严惩！
-          </h4>
-
-          <h4>
-            2.本站所发布一半以上的下载内容及软件的文章仅限用于学习和研究目的；不得将上述内容用于商业或者非法用途，否则一切后果请用户自负。
-          </h4>
-
-          <h4>
-            3.本站信息来自网络，版权争议与本站无关，您必须在下载后的24个小时之内，从您的电脑中彻底删除上述内容,如果您喜欢该程序，请支持正版软件，购买注册，得到更好的正版服务。
-          </h4>
-
-          <h4>
-            4.本站允许注册用户自行投稿，但注意禁止上传或传播毒品、黄色内容、赌博、侮辱国家领导人、反华言论等。
-          </h4>
-
-          <h4>
-            5.访问和下载本站内容，说明您已同意上述条款，一定要遵守本站规则，谢谢配合。
-          </h4>
-
-          <h4>
-            6.本站为非盈利性站点，打赏功能仅仅作为用户喜欢本站捐赠打赏，本站不贩卖软件，所有内容不作为商业行为。
-          </h4>
-
-          <h4>
-            <span style="color: #6a8cff">附:</span
-            >二零零二年一月一日《计算机软件保护条例》第十七条规定：为了学习和研究软件内含的设计思想和原理，通过安装、显示、传输或者存储软件等方式使用软件的，可以不经软件著作权人许可，不向其支付报酬！鉴于此，也希望大家按此说明研究软件！
-          </h4>
-
-          <h4>
-            <span style="color: #ff6b6b">注：</span
-            >本站所有资源均来自网络转载，版权归原作者和公司所有，如果有侵犯到您的权益，请第一时间联系2995209639@qq.com邮箱：我们将配合处理！
-          </h4>
-        </div>
-      </div>
-
-      <div id="Tab4" class="tabcontent">
-        <h1>暗源使用视频</h1>
-        <hr />
-        <div class="announcement-item">
-          <p style="text-align: center; font-size: 18px">正在开发中...</p>
-        </div>
-      </div>
-
-      <div id="Tab5" class="tabcontent">
-        <h1>内容</h1>
-        <hr />
-        <div class="announcement-item">
-          <p style="text-align: center; font-size: 18px">暂无开发...</p>
-        </div>
-      </div>
+      <p class="season-notice" id="season-notice">
+        页面已根据二十四节气和当前日期自动切换到冬季主题。季节主题只会在节气变化时更新。
+      </p>
     </div>
 
     <script>
-      // 打开选项卡
-      function openTab(evt, tabName) {
-        // 隐藏所有内容面板
-        var tabcontent = document.getElementsByClassName("tabcontent");
-        for (var i = 0; i < tabcontent.length; i++) {
-          tabcontent[i].classList.remove("active");
+      document.addEventListener("DOMContentLoaded", function () {
+        // 2025年二十四节气数据
+        const solarTerms = [
+          { name: "立春", date: "2025-02-03", season: "spring" },
+          { name: "雨水", date: "2025-02-18", season: "spring" },
+          { name: "惊蛰", date: "2025-03-05", season: "spring" },
+          { name: "春分", date: "2025-03-20", season: "spring" },
+          { name: "清明", date: "2025-04-04", season: "spring" },
+          { name: "谷雨", date: "2025-04-19", season: "spring" },
+          { name: "立夏", date: "2025-05-05", season: "summer" },
+          { name: "小满", date: "2025-05-21", season: "summer" },
+          { name: "芒种", date: "2025-06-05", season: "summer" },
+          { name: "夏至", date: "2025-06-21", season: "summer" },
+          { name: "小暑", date: "2025-07-07", season: "summer" },
+          { name: "大暑", date: "2025-07-22", season: "summer" },
+          { name: "立秋", date: "2025-08-07", season: "autumn" },
+          { name: "处暑", date: "2025-08-23", season: "autumn" },
+          { name: "白露", date: "2025-09-07", season: "autumn" },
+          { name: "秋分", date: "2025-09-22", season: "autumn" },
+          { name: "寒露", date: "2025-10-08", season: "autumn" },
+          { name: "霜降", date: "2025-10-23", season: "autumn" },
+          { name: "立冬", date: "2025-11-07", season: "winter" },
+          { name: "小雪", date: "2025-11-22", season: "winter" },
+          { name: "大雪", date: "2025-12-07", season: "winter" },
+          { name: "冬至", date: "2025-12-21", season: "winter" },
+          { name: "小寒", date: "2026-01-05", season: "winter" },
+          { name: "大寒", date: "2026-01-20", season: "winter" },
+        ];
+
+        // 季节数据
+        const seasons = {
+          spring: {
+            codeClass: "spring-code",
+            messageClass: "spring-text",
+            icon: "fas fa-seedling",
+            message: "页面在春天的花海中迷路了",
+            description:
+              "您寻找的页面可能已经迁移或不再存在。根据二十四节气，当前正是春季，万物复苏的季节，愿您也能找到新的方向。",
+            statusClass: "spring-status",
+            termClass: "spring-term",
+            detailClass: "spring-detail",
+            bodyBg: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+            startTerm: "立春",
+            endTerm: "立夏",
+            range: "立春至立夏",
+          },
+          summer: {
+            codeClass: "summer-code",
+            messageClass: "summer-text",
+            icon: "fas fa-sun",
+            message: "页面在夏天的烈日下蒸发了",
+            description:
+              "您寻找的页面可能已经迁移或不再存在。根据二十四节气，当前正是夏季，热情似火的季节，愿您也能保持探索的热情。",
+            statusClass: "summer-status",
+            termClass: "summer-term",
+            detailClass: "summer-detail",
+            bodyBg: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
+            startTerm: "立夏",
+            endTerm: "立秋",
+            range: "立夏至立秋",
+          },
+          autumn: {
+            codeClass: "autumn-code",
+            messageClass: "autumn-text",
+            icon: "fas fa-leaf",
+            message: "页面随秋天的落叶飘走了",
+            description:
+              "您寻找的页面可能已经迁移或不再存在。根据二十四节气，当前正是秋季，硕果累累的季节，愿您也能在其他地方收获所需。",
+            statusClass: "autumn-status",
+            termClass: "autumn-term",
+            detailClass: "autumn-detail",
+            bodyBg: "linear-gradient(135deg, #f6d365 0%, #fda085 100%)",
+            startTerm: "立秋",
+            endTerm: "立冬",
+            range: "立秋至立冬",
+          },
+          winter: {
+            codeClass: "winter-code",
+            messageClass: "winter-text",
+            icon: "fas fa-snowflake",
+            message: "页面被冬天的雪花覆盖了",
+            description:
+              "您寻找的页面可能已经迁移或不再存在。根据二十四节气，当前正是冬季，静谧祥和的季节，愿您也能在反思后找到新的方向。",
+            statusClass: "winter-status",
+            termClass: "winter-term",
+            detailClass: "winter-detail",
+            bodyBg: "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)",
+            startTerm: "立冬",
+            endTerm: "立春",
+            range: "立冬至立春",
+          },
+        };
+
+        // 根据日期获取当前节气
+        function getCurrentSolarTerm(date) {
+          const now = date || new Date();
+          const currentDate = new Date(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate()
+          );
+
+          // 查找当前节气
+          for (let i = 0; i < solarTerms.length; i++) {
+            const term = solarTerms[i];
+            const termDate = new Date(term.date);
+
+            // 如果是最后一个节气，检查是否在它和大寒之后立春之前
+            if (i === solarTerms.length - 1) {
+              const nextYearFirstTerm = new Date(solarTerms[0].date);
+              nextYearFirstTerm.setFullYear(
+                nextYearFirstTerm.getFullYear() + 1
+              );
+
+              if (currentDate >= termDate && currentDate < nextYearFirstTerm) {
+                return term;
+              }
+            } else {
+              const nextTerm = solarTerms[i + 1];
+              const nextTermDate = new Date(nextTerm.date);
+
+              if (currentDate >= termDate && currentDate < nextTermDate) {
+                return term;
+              }
+            }
+          }
+
+          // 默认返回第一个节气（立春）
+          return solarTerms[0];
         }
 
-        // 移除所有选项卡按钮的激活状态
-        var tablinks = document.getElementsByClassName("tablinks");
-        for (var i = 0; i < tablinks.length; i++) {
-          tablinks[i].classList.remove("active");
+        // 获取下一个节气
+        function getNextSolarTerm(currentTerm) {
+          const currentIndex = solarTerms.findIndex(
+            (term) => term.name === currentTerm.name
+          );
+          if (currentIndex === solarTerms.length - 1) {
+            return solarTerms[0]; // 回到第一个节气（立春）
+          }
+          return solarTerms[currentIndex + 1];
         }
 
-        // 显示当前选项卡的内容面板并添加激活状态到按钮
-        document.getElementById(tabName).classList.add("active");
-        evt.currentTarget.classList.add("active");
-      }
+        // 计算距离下一个节气的天数
+        function getDaysToNextTerm(currentTerm, nextTerm) {
+          const now = new Date();
+          const currentDate = new Date(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate()
+          );
+          const nextTermDate = new Date(nextTerm.date);
 
-      // 默认选中第一个选项卡
-      document.getElementsByClassName("tablinks")[0].click();
+          // 如果下一个节气是明年的，调整年份
+          if (nextTermDate < currentDate) {
+            nextTermDate.setFullYear(nextTermDate.getFullYear() + 1);
+          }
+
+          // 计算天数差
+          const timeDiff = nextTermDate.getTime() - currentDate.getTime();
+          const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+          return daysDiff;
+        }
+
+        // 获取季节中文名称
+        function getSeasonChineseName(season) {
+          const names = {
+            spring: "春季",
+            summer: "夏季",
+            autumn: "秋季",
+            winter: "冬季",
+          };
+          return names[season] || "春季";
+        }
+
+        // 渲染节气列表
+        function renderSolarTerms() {
+          const springTerms = solarTerms.filter(
+            (term) => term.season === "spring"
+          );
+          const summerTerms = solarTerms.filter(
+            (term) => term.season === "summer"
+          );
+          const autumnTerms = solarTerms.filter(
+            (term) => term.season === "autumn"
+          );
+          const winterTerms = solarTerms.filter(
+            (term) => term.season === "winter"
+          );
+
+          const springContainer = document.getElementById("spring-terms");
+          const summerContainer = document.getElementById("summer-terms");
+          const autumnContainer = document.getElementById("autumn-terms");
+          const winterContainer = document.getElementById("winter-terms");
+
+          springContainer.innerHTML = springTerms
+            .map(
+              (term) =>
+                `<span class="term-item spring-term-item">${term.name}</span>`
+            )
+            .join("");
+
+          summerContainer.innerHTML = summerTerms
+            .map(
+              (term) =>
+                `<span class="term-item summer-term-item">${term.name}</span>`
+            )
+            .join("");
+
+          autumnContainer.innerHTML = autumnTerms
+            .map(
+              (term) =>
+                `<span class="term-item autumn-term-item">${term.name}</span>`
+            )
+            .join("");
+
+          winterContainer.innerHTML = winterTerms
+            .map(
+              (term) =>
+                `<span class="term-item winter-term-item">${term.name}</span>`
+            )
+            .join("");
+        }
+
+        // 获取DOM元素
+        const seasonBg = document.querySelectorAll(".season-bg");
+        const errorCode = document.querySelector(".error-code");
+        const seasonMessage = document.getElementById("season-message");
+        const currentSolarTerm = document.getElementById("current-solar-term");
+        const seasonDescription = document.getElementById("season-description");
+        const seasonStatus = document.getElementById("season-status");
+        const seasonIcon = document.querySelector(".season-icon");
+        const currentSeasonDisplay = document.getElementById(
+          "current-season-display"
+        );
+        const currentTermDisplay = document.getElementById(
+          "current-term-display"
+        );
+        const seasonRange = document.getElementById("season-range");
+        const nextTermDisplay = document.getElementById("next-term");
+        const daysToNextTerm = document.getElementById("days-to-next-term");
+        const seasonNotice = document.getElementById("season-notice");
+        const body = document.body;
+
+        // 初始化页面
+        function initPage() {
+          const currentTerm = getCurrentSolarTerm();
+          const currentSeason = currentTerm.season;
+          const nextTerm = getNextSolarTerm(currentTerm);
+          const daysToNext = getDaysToNextTerm(currentTerm, nextTerm);
+
+          // 更新季节背景
+          seasonBg.forEach((bg) => {
+            bg.classList.remove("active");
+            if (bg.classList.contains(currentSeason)) {
+              bg.classList.add("active");
+            }
+          });
+
+          // 更新错误代码颜色
+          errorCode.className =
+            "error-code " + seasons[currentSeason].codeClass;
+
+          // 更新季节消息
+          seasonMessage.className =
+            "error-message " + seasons[currentSeason].messageClass;
+          seasonMessage.textContent = seasons[currentSeason].message;
+
+          // 更新节气显示
+          currentSolarTerm.className =
+            "current-solar-term " + seasons[currentSeason].termClass;
+          currentSolarTerm.textContent = "当前节气：" + currentTerm.name;
+
+          // 更新季节图标
+          seasonIcon.innerHTML = `<i class="${seasons[currentSeason].icon}"></i>`;
+
+          // 更新描述文本
+          seasonDescription.textContent = seasons[currentSeason].description;
+
+          // 更新季节状态
+          seasonStatus.className =
+            "season-status " + seasons[currentSeason].statusClass;
+          seasonStatus.textContent = `当前季节：${getSeasonChineseName(
+            currentSeason
+          )}（${seasons[currentSeason].range}）`;
+
+          // 更新背景渐变
+          body.style.background = seasons[currentSeason].bodyBg;
+
+          // 更新季节详情
+          currentSeasonDisplay.className =
+            "detail-value " + seasons[currentSeason].detailClass;
+          currentSeasonDisplay.textContent =
+            getSeasonChineseName(currentSeason);
+
+          currentTermDisplay.className =
+            "detail-value " + seasons[currentSeason].detailClass;
+          currentTermDisplay.textContent = currentTerm.name;
+
+          seasonRange.className =
+            "detail-value " + seasons[currentSeason].detailClass;
+          seasonRange.textContent = seasons[currentSeason].range;
+
+          nextTermDisplay.className =
+            "detail-value " + seasons[currentSeason].detailClass;
+          nextTermDisplay.textContent = nextTerm.name;
+
+          daysToNextTerm.className =
+            "detail-value " + seasons[currentSeason].detailClass;
+          daysToNextTerm.textContent = `约${daysToNext}天`;
+
+          // 更新季节通知
+          seasonNotice.textContent = `页面已根据二十四节气和当前日期自动切换到${getSeasonChineseName(
+            currentSeason
+          )}主题。季节主题只会在节气变化时更新，下次更新大约在${daysToNext}天后（${
+            nextTerm.name
+          }）。`;
+
+          // 渲染节气列表
+          renderSolarTerms();
+        }
+
+        // 初始化页面
+        initPage();
+      });
     </script>
   </body>
 </html>
